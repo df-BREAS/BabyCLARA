@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BabyCLARA": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

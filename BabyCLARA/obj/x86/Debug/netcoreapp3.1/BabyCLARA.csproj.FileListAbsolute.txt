@@ -1,0 +1,5 @@
+C:\Users\200432\source\repos\BabyCLARA\BabyCLARA\obj\x86\Debug\netcoreapp3.1\BabyCLARA.csproj.AssemblyReference.cache
+C:\Users\200432\source\repos\BabyCLARA\BabyCLARA\obj\x86\Debug\netcoreapp3.1\BabyCLARA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\200432\source\repos\BabyCLARA\BabyCLARA\obj\x86\Debug\netcoreapp3.1\BabyCLARA.AssemblyInfoInputs.cache
+C:\Users\200432\source\repos\BabyCLARA\BabyCLARA\obj\x86\Debug\netcoreapp3.1\BabyCLARA.AssemblyInfo.cs
+C:\Users\200432\source\repos\BabyCLARA\BabyCLARA\obj\x86\Debug\netcoreapp3.1\BabyCLARA.csproj.CoreCompileInputs.cache

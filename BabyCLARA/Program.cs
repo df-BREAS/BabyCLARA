@@ -44,10 +44,6 @@ namespace BabyCLARA
             Stopwatch stopwatch = Stopwatch.StartNew();
             double prevTime = stopwatch.Elapsed.TotalMilliseconds;
 
-            // Run the main sim loop for the first 10 ms
-            MainSimLoop(patient, globals, mainModel, auxBlocks, 0,
-                0, prevTime * 1000);
-
             // Run Simulation
             RunCLARA(daqTask, analogChannelWriter, flowAnalyzer, stopwatch, prevTime,
                 patient, globals, mainModel, auxBlocks);
@@ -65,8 +61,17 @@ namespace BabyCLARA
             Stopwatch stopwatch, double prevTime, Patient patient, SimGlobals globals, 
             MainModel mainModel, AuxBlocks auxBlocks)
         {
+            Console.WriteLine("Inside RunCLARA function");
+
+            // Test
+            const double MinVoltage = 0;
+            const double MaxVoltage = 10;
+            const double SignalAmplitude = MaxVoltage / 2;
+            const double SignalBias = MaxVoltage / 2;
+
             // Sampling interval is 10 ms which gives a sampling freuqency of 100 Hz
             const double SamplingInterval = 10;
+            double simTime = 0;
         
             while (true)
             {
@@ -77,13 +82,15 @@ namespace BabyCLARA
                 {
                     double measuredPressure = flowAnalyzer.Pressure;
                     double measuredFlow = flowAnalyzer.Flow;
-                    MainSimLoop(patient, globals, mainModel, auxBlocks, measuredFlow,
-                        measuredPressure, elapsedTime * 1000);
-                    analogChannelWriter.WriteSingleSample(true, patient.Pmus);
+                    MainSimLoop(patient, globals, mainModel, auxBlocks, 0,
+                        0, simTime);
+                    Console.WriteLine($"{simTime}, {patient.Pmus}");
+                    analogChannelWriter.WriteSingleSample(true, patient.Pmus + SignalBias);
+                    prevTime = elapsedTime;
+                    simTime += 0.01;
                 }
 
                 if (stopwatch.Elapsed.TotalSeconds > globals.MaxSimTime) { break; }
-                prevTime = elapsedTime;
             }
 
         }
@@ -94,8 +101,8 @@ namespace BabyCLARA
         static void MainSimLoop(Patient patient, SimGlobals globals, MainModel mainModel,
             AuxBlocks auxBlocks, double measuredFlow, double measuredPressure, double currSimTime)
         {
-            for (double SimTimeSec = currSimTime; SimTimeSec <= SimTimeSec + 0.01; SimTimeSec += 0.001)
-            {
+            for (double SimTimeSec = currSimTime; SimTimeSec <= currSimTime + 0.01; SimTimeSec += 0.001)
+            { 
                 if (SimTimeSec > 0) { auxBlocks.AuxBlocksSimStep(globals, patient, SimTimeSec); }
                 mainModel.MainModelSimStep(globals, patient, measuredFlow, measuredPressure, SimTimeSec);
             }
@@ -135,10 +142,6 @@ namespace BabyCLARA
             const string PhysicalChannel = "Dev1/ao0";
             const double MinVoltage = 0;
             const double MaxVoltage = 10;
-
-            // Test
-            const double SignalAmplitude = MaxVoltage / 2;
-            const double SignalBias = MaxVoltage / 2;
 
             // Create the task and channel
             // Create the task and channel

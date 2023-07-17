@@ -300,72 +300,62 @@ namespace BabyCLARA.PhysiologicalModel
         public void AuxBlocksSimStep(SimGlobals simGlobals, Patient patient, double SimTimeSec)
         {
             // Run simulation in order. As each block is run, propagate the outputs to the other blocks that require them
-            if (SimTimeSec > 0)
-            {
-                // Water vapor block
-                Marshal.StructureToPtr(pWaterVaporInput, pWaterVaporInput_ptr, true);
-                gasExFacModelInput.Pvap = PWaterVaporModel(pWaterVaporInput_ptr, SimTimeSec);
 
-                // Gas Exchange Factor block
-                Marshal.StructureToPtr(gasExFacModelInput, gasExFacModelInput_ptr, true);
-                patient.K_863 = GasExchangeFactorModel(gasExFacModelInput_ptr, SimTimeSec);
+            // Water vapor block
+            Marshal.StructureToPtr(pWaterVaporInput, pWaterVaporInput_ptr, true);
+            gasExFacModelInput.Pvap = PWaterVaporModel(pWaterVaporInput_ptr, SimTimeSec);
 
-                // Height to Median Body Weight Block
-                patient.MBW_kg = HeightToMedianBodyWeightModel(patient.Height_cm, SimTimeSec);
+            // Gas Exchange Factor block
+            Marshal.StructureToPtr(gasExFacModelInput, gasExFacModelInput_ptr, true);
+            patient.K_863 = GasExchangeFactorModel(gasExFacModelInput_ptr, SimTimeSec);
 
-                // Blood in Brain Flow Block
-                bloodInBrainFlowInput.MBW_kg = patient.MBW_kg;
-                Marshal.StructureToPtr(bloodInBrainFlowInput, bloodInBrainFlowInput_ptr, true);
-                patient.QTissue_LPS = BloodInBrainFlowModel(bloodInBrainFlowInput_ptr, SimTimeSec);
+            // Height to Median Body Weight Block
+            patient.MBW_kg = HeightToMedianBodyWeightModel(patient.Height_cm, SimTimeSec);
 
-                // Relative Obesity Block
-                relativeObesityInput.Wt_ideal_for_Ht = patient.MBW_kg;
-                Marshal.StructureToPtr(relativeObesityInput, relativeObesityInput_ptr, true);
-                RelativeObesityModel(relativeObesityInput_ptr, relativeObesityOutput_ptr, SimTimeSec);
-                relativeObesityOutput = (RelativeObesityOutputs)Marshal.PtrToStructure(relativeObesityOutput_ptr, typeof(RelativeObesityOutputs))!;
+            // Blood in Brain Flow Block
+            bloodInBrainFlowInput.MBW_kg = patient.MBW_kg;
+            Marshal.StructureToPtr(bloodInBrainFlowInput, bloodInBrainFlowInput_ptr, true);
+            patient.QTissue_LPS = BloodInBrainFlowModel(bloodInBrainFlowInput_ptr, SimTimeSec);
 
-                // Patient Crs Block
-                patientCrsModelInput.Obese_f = relativeObesityOutput.Obese_f;
-                Marshal.StructureToPtr(patientCrsModelInput, patientCrsModelInput_ptr, true);
-                PatientCrsModel(patientCrsModelInput_ptr, patientCrsModelOutput_ptr, SimTimeSec);
-                patientCrsModelOutput = (PatientCrsModelOutputs)Marshal.PtrToStructure(patientCrsModelOutput_ptr, typeof(PatientCrsModelOutputs))!;
-                patient.Crs_linear = patientCrsModelOutput.Crs;
-                patient.UA_supine_factor = patientCrsModelOutput.UA_supine_factor;
+            // Relative Obesity Block
+            relativeObesityInput.Wt_ideal_for_Ht = patient.MBW_kg;
+            Marshal.StructureToPtr(relativeObesityInput, relativeObesityInput_ptr, true);
+            RelativeObesityModel(relativeObesityInput_ptr, relativeObesityOutput_ptr, SimTimeSec);
+            relativeObesityOutput = (RelativeObesityOutputs)Marshal.PtrToStructure(relativeObesityOutput_ptr, typeof(RelativeObesityOutputs));
 
-                // Lung/Airway Capacities Block
-                lungAirwayCapInput.Crs_pt = patientCrsModelOutput.Crs;
-                Marshal.StructureToPtr(lungAirwayCapInput, lungAirwayCapInput_ptr, true);
-                LungAirwayCapacitiesModel(lungAirwayCapInput_ptr, lungAirwayCapOutput_ptr, SimTimeSec);
-                lungAirwayCapOutput = (LungAirwayCapModelOutput)Marshal.PtrToStructure(lungAirwayCapOutput_ptr, typeof(LungAirwayCapModelOutput))!;
-                patient.VD_anat_normal = lungAirwayCapOutput.Vd_anat;
-                patient.Vic = lungAirwayCapOutput.V_ic;
-                patient.V_FRC = lungAirwayCapOutput.V_frc;
+            // Patient Crs Block
+            patientCrsModelInput.Obese_f = relativeObesityOutput.Obese_f;
+            Marshal.StructureToPtr(patientCrsModelInput, patientCrsModelInput_ptr, true);
+            PatientCrsModel(patientCrsModelInput_ptr, patientCrsModelOutput_ptr, SimTimeSec);
+            patientCrsModelOutput = (PatientCrsModelOutputs)Marshal.PtrToStructure(patientCrsModelOutput_ptr, typeof(PatientCrsModelOutputs));
+            patient.Crs_linear = patientCrsModelOutput.Crs;
+            patient.UA_supine_factor = patientCrsModelOutput.UA_supine_factor;
 
-                // Height to Metabolic Rate
-                patient.PtRate_nominal = HeightToRateModel(patient.Height_cm, SimTimeSec);
+            // Lung/Airway Capacities Block
+            lungAirwayCapInput.Crs_pt = patientCrsModelOutput.Crs;
+            Marshal.StructureToPtr(lungAirwayCapInput, lungAirwayCapInput_ptr, true);
+            LungAirwayCapacitiesModel(lungAirwayCapInput_ptr, lungAirwayCapOutput_ptr, SimTimeSec);
+            lungAirwayCapOutput = (LungAirwayCapModelOutput)Marshal.PtrToStructure(lungAirwayCapOutput_ptr, typeof(LungAirwayCapModelOutput));
+            patient.VD_anat_normal = lungAirwayCapOutput.Vd_anat;
+            patient.Vic = lungAirwayCapOutput.V_ic;
+            patient.V_FRC = lungAirwayCapOutput.V_frc;
 
-                // Basal Metabolic Rate
-                Marshal.StructureToPtr(basalMRInput, basalMRInput_ptr, true);
-                patient.MR_basal_kcalPerDay = BasalMetabolicRateModel(basalMRInput_ptr, SimTimeSec);
+            // Height to Metabolic Rate
+            patient.PtRate_nominal = HeightToRateModel(patient.Height_cm, SimTimeSec);
 
-                // Airway Resistance Raw Model
-                Marshal.StructureToPtr(airwayResistanceModelInput, airwayResistanceModelInput_ptr, true);
-                AirwayResistanceRawModel(airwayResistanceModelInput_ptr, airwayResistanceModelOutput_ptr, SimTimeSec);
-                airwayResistanceModelOutput = (AirwayResistanceModelOutputs)Marshal.PtrToStructure(airwayResistanceModelOutput_ptr, typeof(AirwayResistanceModelOutputs))!;
-                patient.Roronasal = airwayResistanceModelOutput.Roronasal;
-                patient.Rlower_insp = airwayResistanceModelOutput.Rlower_insp;
-                patient.Rlower_exp = airwayResistanceModelOutput.Rlower_exp;
-                patient.Rinsp_nominal = airwayResistanceModelOutput.Rinsp_nominal;
-                patient.Rexp_nominal = airwayResistanceModelOutput.Rexp_nominal;
-            }
-            else if (SimTimeSec > 0)
-            {
-                // Patient Crs Block
-                PatientCrsModel(patientCrsModelInput_ptr, patientCrsModelOutput_ptr, SimTimeSec);
-                patientCrsModelOutput = (PatientCrsModelOutputs)Marshal.PtrToStructure(patientCrsModelOutput_ptr, typeof(PatientCrsModelOutputs))!;
-                patient.Crs_linear = patientCrsModelOutput.Crs;
-            }
+            // Basal Metabolic Rate
+            Marshal.StructureToPtr(basalMRInput, basalMRInput_ptr, true);
+            patient.MR_basal_kcalPerDay = BasalMetabolicRateModel(basalMRInput_ptr, SimTimeSec);
 
+            // Airway Resistance Raw Model
+            Marshal.StructureToPtr(airwayResistanceModelInput, airwayResistanceModelInput_ptr, true);
+            AirwayResistanceRawModel(airwayResistanceModelInput_ptr, airwayResistanceModelOutput_ptr, SimTimeSec);
+            airwayResistanceModelOutput = (AirwayResistanceModelOutputs)Marshal.PtrToStructure(airwayResistanceModelOutput_ptr, typeof(AirwayResistanceModelOutputs));
+            patient.Roronasal = airwayResistanceModelOutput.Roronasal;
+            patient.Rlower_insp = airwayResistanceModelOutput.Rlower_insp;
+            patient.Rlower_exp = airwayResistanceModelOutput.Rlower_exp;
+            patient.Rinsp_nominal = airwayResistanceModelOutput.Rinsp_nominal;
+            patient.Rexp_nominal = airwayResistanceModelOutput.Rexp_nominal;
         }
 
         public void AuxBlocksFreeMemory()
