@@ -1,0 +1,2966 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>imtmedical.Pf300Communication</name>
+    </assembly>
+    <members>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandCalibrationGetStatus">
+            <summary>
+            Class for a PF300 receive data element.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommand">
+            <summary>
+            Class for a PF300 receive data element.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataAbs">
+            <summary>
+            Abstract base class for a PF300 receive data elements.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataIfc">
+            <summary>
+            Interface for received data.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataIfc.RawData">
+            <summary>
+            Gets the raw data.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataIfc.DataType">
+            <summary>
+            Gets the type of received data.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataAbs.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataAbs.m_rawData">
+            <summary>
+            Raw data
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataAbs.m_dataType">
+            <summary>
+            Data type
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataAbs.RawData">
+            <summary>
+            Gets the raw data.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataAbs.DataType">
+            <summary>
+            Gets the type of received data.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommand.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommand.m_commandId">
+            <summary>
+            Command id
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommand.m_errorId">
+            <summary>
+            Error id
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommand.m_data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommand.ErrorId">
+            <summary>
+            Gets the error id.
+            </summary>
+            <value>The error id.</value>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommand.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandCalibrationGetStatus.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandCalibrationGetStatus.CalibrationState">
+            <summary>
+            Gets the state of calibration.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandGetLastCalibDate">
+            <summary>
+            Class for a PF300 command "GetLastCalibDate".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandAbs">
+            <summary>
+            Abstract base class for a PF300 commands.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandIfc">
+            <summary>
+            Interface for PF300 commands.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandIfc.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Command.Pf300CommandIfc.CommandType">
+            <summary>
+            Gets the command type.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandAbs.#ctor(imtmedical.Pf300Communication.Pf300Command.Pf300CommandType)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="commandType">command type</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandAbs.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandAbs.BuildCommandString(System.String[])">
+            <summary>
+            Builds a command string.
+            </summary>
+            <param name="commandData"></param>
+            <returns></returns>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandAbs.m_commandType">
+            <summary>
+            Command type
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Command.Pf300CommandAbs.CommandType">
+            <summary>
+            Gets the command type.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandGetLastCalibDate.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandGetLastCalibDate.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300Setting">
+            <summary>
+            General class for PF300 setting.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300Setting.GetSettingType(System.String)">
+            <summary>
+            Gets the setting type for a receive data string with data type setting.
+            </summary>
+            <param name="receiveData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetLastCalibDate">
+            <summary>
+            Class for a PF300 receive data element.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetLastCalibDate.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetLastCalibDate.Date">
+            <summary>
+            Gets the date of last calibration.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300FlowChannelType">
+            <summary>
+            PF300 flow channel enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300FlowChannelType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300FlowChannelType.HighFlow">
+            <summary>
+            High flow
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300FlowChannelType.LowFlow">
+            <summary>
+            Low flow
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300FlowChannelType.ExternalFlow">
+            <summary>
+            External flow
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType">
+            <summary>
+            PF300 setting type enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Language">
+            <summary>
+            Language
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Gas">
+            <summary>
+            Gas
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Standardisation">
+            <summary>
+            Standardisation
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Units">
+            <summary>
+            Units
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Trigger">
+            <summary>
+            Trigger
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Alarms">
+            <summary>
+            Alarms
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.Baseflow">
+            <summary>
+            Baseflow
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.FirmwareVersion">
+            <summary>
+            Firmware version
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.TriggerRespMode">
+            <summary>
+            Trigger respiratory mode
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.FilterType">
+            <summary>
+            Filter type
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.OxyConcentration">
+            <summary>
+            Oxygen concentration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.IrmaAgent">
+            <summary>
+            IRMA sensor agent
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType.CustomGas">
+            <summary>
+            Custom gas
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Base.DeviceAbs">
+            <summary>
+            Abstract base class for a device.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Base.DeviceIfc">
+            <summary>
+            Interface for a device.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceIfc.Key">
+            <summary>
+            Gets the unique device key.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceIfc.Description">
+            <summary>
+            Gets the device description.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceIfc.Connection">
+            <summary>
+            Gets the device connection.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.DeviceAbs.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.DeviceAbs.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Base.DeviceAbs.m_key">
+            <summary>
+            Unique device key
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Base.DeviceAbs.m_description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Base.DeviceAbs.m_connection">
+            <summary>
+            Connection
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceAbs.Key">
+            <summary>
+            Gets the unique device key.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceAbs.Description">
+            <summary>
+            Gets the device description.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceAbs.Connection">
+            <summary>
+            Gets the device connection.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300TriggerRespModeType">
+            <summary>
+            Trigger respiratory mode enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300TriggerRespModeType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300TriggerRespModeType.Adult">
+            <summary>
+            Adult
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300TriggerRespModeType.Pediatric">
+            <summary>
+            Pediatric
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300TriggerRespModeType.HighFreqency">
+            <summary>
+            High Frequency.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingFirmwareVersion">
+            <summary>
+            Class for a PF300 firmware version setting.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs">
+            <summary>
+            Abstract base class for a PF300 settings.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingIfc">
+            <summary>
+            Interface for PF300 settings.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingIfc.Set(System.String)">
+            <summary>
+            Sets the setting from raw data.
+            </summary>
+            <param name="rawData"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingIfc.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingIfc.SettingType">
+            <summary>
+            Gets the setting type.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs.#ctor(imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="settingType">setting type</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs.Set(System.String)">
+            <summary>
+            Sets the setting from raw data.
+            </summary>
+            <param name="rawData"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs.BuildSettingString(System.String[])">
+            <summary>
+            Builds a setting string.
+            </summary>
+            <param name="settingData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs.SplitSettingString(System.String)">
+            <summary>
+            Splits raw setting data.
+            </summary>
+            <param name="rawData"></param>
+            <returns></returns>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs.m_settingType">
+            <summary>
+            Setting type
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingAbs.SettingType">
+            <summary>
+            Gets the setting type.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingFirmwareVersion.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingFirmwareVersion.Set(System.String)">
+            <summary>
+            Sets the specified raw data.
+            </summary>
+            <param name="rawData">The raw data.</param>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingFirmwareVersion.Version">
+            <summary>
+            Gets the frimware version.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300Command">
+            <summary>
+            General class for PF300 command.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandLiveCheck">
+            <summary>
+            Class for a PF300 command "LiveCheck".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandLiveCheck.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandLiveCheck.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandGetSerialNumber">
+            <summary>
+            Class for a PF300 command "GetSerialNumber".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandGetSerialNumber.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandGetSerialNumber.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetSerialNumber">
+            <summary>
+            Class for a PF300 receive data element.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetSerialNumber.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetSerialNumber.ParseSerialNumber(System.String)">
+            <summary>
+            Parses serial number from three longinteger values.
+            input:	"1111568432;808464433;0"
+            hex:	42|41|30|30;30|30|30|31|;00|00|00|00
+            char:	B  A  0  0  0  0  0  1   -  -  -  -
+            return: "BA000001"
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetSerialNumber.ParseIntToString(System.String)">
+            <summary>
+            Converts a 32 bit interger value to a string of 4 characters.
+            input:	"1111568432"
+            hex:	42|41|30|30
+            char:	B  A  0  0
+            return: "BA00"
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataCommandGetSerialNumber.SerialNumber">
+            <summary>
+            Gets the SerialNumber.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSourceType">
+            <summary>
+            Trigger source enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSourceType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSourceType.InternHf">
+            <summary>
+            Internal High Flow (default)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSourceType.InternLf">
+            <summary>
+            Internal Low Flow
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSourceType.ExternHf">
+            <summary>
+            External High Flow
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSourceType.ExternLf">
+            <summary>
+            External Low Flow
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType">
+            <summary>
+            Standardisation enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.ATP">
+            <summary>
+            Volume and Flow at actual ambient pressure, gas temperature and humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.STP">
+            <summary>
+            Volume and Flow at 21.1°C, 1013.25mbar and 0% humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.BTPS">
+            <summary>
+            Volume and Flow at 37°C, actual ambient pressure and 100% humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.BTPD">
+            <summary>
+            Volume and Flow at 37°C, actual ambient pressure and 0% humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.Standard0_1013">
+            <summary>
+            Volume and Flow at 0°C, 1013.25mbar and 0% humidity (DIN1343)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.Standard20_981">
+            <summary>
+            Volume and Flow at 20°C, 981mbar and 0% humidity (DIN102)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.Standard15_1013">
+            <summary>
+            Volume and Flow at 15.5°C and 1013.25mbar and 0% humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.Standard20_1013">
+            <summary>
+            Volume and Flow at 20°C, 1013.25mbar and 0% humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.Standard25_991">
+            <summary>
+            Volume and Flow at 25°C, 991.4mbar and 0% humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.AP21">
+            <summary>
+            Volume and Flow at 21.1°C and actual ambient pressure and humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.STPH">
+            <summary>
+            >Volume and Flow at 21.1°C, 1013.25mbar and actual humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.ATPD">
+            <summary>
+            Volume and Flow at actual ambient pressure and gas temperature and 0% humidity
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType.ATPS">
+            <summary>
+            Volume and Flow at actual ambient pressure and gas temperature and 100% humidity
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingStandardisation">
+            <summary>
+            Class for a PF300 standardisation setting.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingStandardisation.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingStandardisation.Set(System.String)">
+            <summary>
+            Sets the specified raw data.
+            </summary>
+            <param name="rawData">The raw data.</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingStandardisation.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingStandardisation.Standardisation">
+            <summary>
+            Gets or sets the standardisation.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300FlowDirectionType">
+            <summary>
+            PF300 flow direction enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300FlowDirectionType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300FlowDirectionType.Positive">
+            <summary>
+            Positive
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300FlowDirectionType.Negative">
+            <summary>
+            Negative
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.FtdiDriver">
+            <summary>
+            Static wrapper class for FTDI serial communication driver
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.FtdiDriver.FT_LIST_NUMBER_ONLY">
+            <summary>
+            Get the number of devices currently connected.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.FtdiDriver.FT_LIST_BY_INDEX">
+            <summary>
+            Get specific information for a single device by index (e.g. FT_LIST_BY_INDEX|FT_OPEN_BY_SERIAL_NUMBER).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.FtdiDriver.FT_LIST_ALL">
+            <summary>
+            Get specific information for all devices (e.g. FT_LIST_ALL|FT_OPEN_BY_DESCRIPTION).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.FtdiDriver.FT_OPEN_BY_SERIAL_NUMBER">
+            <summary>
+            Serial number information key.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.FtdiDriver.FT_OPEN_BY_DESCRIPTION">
+            <summary>
+            Description information key.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.FtdiDriver.BUFFER_SIZE">
+            <summary>
+            Default buffer size.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.GetDeviceCount(System.UInt32@)">
+            <summary>
+            Gets the count of connected FTDI USB devices.
+            </summary>
+            <param name="deviceCount"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.GetSerialNumber(System.UInt32,System.String@)">
+            <summary>
+            Gets the serial number of a device by index
+            </summary>
+            <param name="index">device index</param>
+            <param name="serialNumber"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.GetDescription(System.UInt32,System.String@)">
+            <summary>
+            Gets the description of a device by index
+            </summary>
+            <param name="index"></param>
+            <param name="description"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.Connect(System.String,System.UInt32@)">
+            <summary>
+            Opens the connection to the the device using a serial number.
+            </summary>
+            <param name="serialNumber"></param>
+            <param name="handle"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.Disconnect(System.UInt32)">
+            <summary>
+            Closes the connection to the device.
+            </summary>
+            <param name="handle"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.GetStatus(System.UInt32,System.UInt32@,System.UInt32@,System.UInt32@)">
+            <summary>
+            Gets the device status including number of characters in the receive queue, number of characters in the transmit queue, and the current event status.
+            </summary>
+            <param name="handle"></param>
+            <param name="receiveBytes"></param>
+            <param name="transmitBytes"></param>
+            <param name="eventStatus"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.IsConnected(System.UInt32)">
+            <summary>
+            Gets if the device is connected.
+            </summary>
+            <param name="handle"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.Write(System.UInt32,System.String)">
+            <summary>
+            Writes data to the device.
+            </summary>
+            <param name="handle"></param>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.Read(System.UInt32,System.String@)">
+            <summary>
+            Reads data from the device.
+            </summary>
+            <param name="handle"></param>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.FT_ListDevices(System.UInt32@,System.Void*,System.UInt32)">
+            <summary>
+            Lists devices (get device count).
+            </summary>
+            <param name="deviceCount"></param>
+            <param name="argument2"></param>
+            <param name="flag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.FT_ListDevices(System.UInt32,System.Void*,System.UInt32)">
+            <summary>
+            Lists devices (get specific information by device index).
+            </summary>
+            <param name="index"></param>
+            <param name="argument2"></param>
+            <param name="flag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.FT_OpenEx(System.String,System.UInt32,System.UInt32@)">
+            <summary>
+            Opens a connection using the serial number.
+            </summary>
+            <param name="serialNumber"></param>
+            <param name="flag"></param>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.FT_Close(System.UInt32)">
+            <summary>
+            Closes a connection.
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.FT_GetStatus(System.UInt32,System.UInt32@,System.UInt32@,System.UInt32@)">
+            <summary>
+            Gets the device status including number of characters in the receive queue, number of characters in the transmit queue, and the current event status.
+            </summary>
+            <param name="handle"></param>
+            <param name="receiveBytes"></param>
+            <param name="transmitBytes"></param>
+            <param name="eventStatus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.FT_Write(System.UInt32,System.String,System.UInt32,System.UInt32@)">
+            <summary>
+            Writes data to the device.
+            </summary>
+            <param name="handle"></param>
+            <param name="buffer"></param>
+            <param name="bufferSize"></param>
+            <param name="bytesReturned"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.FtdiDriver.FT_Read(System.UInt32,System.Void*,System.UInt32,System.UInt32@)">
+            <summary>
+            Reads data from the device.
+            </summary>
+            <param name="handle"></param>
+            <param name="buffer"></param>
+            <param name="bufferSize"></param>
+            <param name="bytesReturned"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType">
+            <summary>
+            Gas type enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.Air">
+            <summary>
+            Air
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.AirOxygenManual">
+            <summary>
+            Air O2 mixture manual (O2 concentration manual setting)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.AirOxygenAuto">
+            <summary>
+            Air 02 mixture auto (O2 concentration measured with O2 sensor)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.N2oOxygenManual">
+            <summary>
+            N2O O2 mixture manual (O2 concentration manual setting)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.N2oOxygenAuto">
+            <summary>
+            N2O O2 mixture auto (O2 concentration measured with O2 sensor)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.Heliox">
+            <summary>
+            Helium 02 mixture (O2 concentration 21%)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.HeOxygenManual">
+            <summary>
+            Helium O2 mixture manual (O2 concentration manual setting)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.HeOxygenAuto">
+            <summary>
+            Helium O2 mixture auto   (O2 concentration measured with O2 sensor)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.N2">
+            <summary>
+            Nitrogen
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.CO2">
+            <summary>
+            Carbon dioxide
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300GasType.CustomGas">
+            <summary>
+            Custom gas (Density, Viscosity, ViscosityCoefficient)
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingOxyConcentration">
+            <summary>
+            Class for a PF300 oxygen concentration setting.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingOxyConcentration.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingOxyConcentration.Set(System.String)">
+            <summary>
+            Sets the specified raw data.
+            </summary>
+            <param name="rawData">The raw data.</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingOxyConcentration.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingOxyConcentration.Value">
+            <summary>
+            Gets or sets the oxygen concentration value.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandSettingsLoad">
+            <summary>
+            Class for a PF300 command "SettingsLoad".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandSettingsLoad.#ctor(imtmedical.Pf300Communication.Pf300Setting.Pf300SettingType)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandSettingsLoad.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStart">
+            <summary>
+            Class for a PF300 command "CalibrationStart".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStart.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStart.SetOffsetParameters">
+            <summary>
+            Sets the parameters for calibration type "Offset".
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStart.SetOxygenParameters(imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType,imtmedical.Pf300Communication.Pf300Data.Pf300FlowDirectionType)">
+            <summary>
+            Sets the parameters for calibration type "Oxygen".
+            </summary>
+            <param name="pressureSensor"></param>
+            <param name="flowDirection"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStart.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Ftdi.FtdiConnection">
+            <summary>
+            Class for a FTDI USB device connection.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Base.ConnectionAbs">
+            <summary>
+            Abstract base class for a connection.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Base.ConnectionIfc">
+            <summary>
+            Interface for a connection.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionIfc.Connect">
+            <summary>
+            Opens the connection to the the device.
+            </summary>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionIfc.Disconnect">
+            <summary>
+            Closes the connection to the device.
+            </summary>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionIfc.Read(System.String@)">
+            <summary>
+            Reads data from the device.
+            </summary>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionIfc.Write(System.String)">
+            <summary>
+            Writes data to the device.
+            </summary>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.ConnectionIfc.IsConnected">
+            <summary>
+            Gets if the connection is connected.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionAbs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionAbs.Connect">
+            <summary>
+            Opens the connection to the the device.
+            </summary>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionAbs.Disconnect">
+            <summary>
+            Closes the connection to the device.
+            </summary>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionAbs.Read(System.String@)">
+            <summary>
+            Reads data from the device.
+            </summary>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.ConnectionAbs.Write(System.String)">
+            <summary>
+            Writes data to the device.
+            </summary>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.ConnectionAbs.IsConnected">
+            <summary>
+            Gets if the connection is connected.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiConnection.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiConnection.Connect">
+            <summary>
+            Opens the connection to the the device.
+            </summary>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiConnection.Disconnect">
+            <summary>
+            Closes the connection to the device.
+            </summary>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiConnection.Read(System.String@)">
+            <summary>
+            Reads data from the device.
+            </summary>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiConnection.Write(System.String)">
+            <summary>
+            Writes data to the device.
+            </summary>
+            <param name="data"></param>
+            <returns>true on success</returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Ftdi.FtdiConnection.IsConnected">
+            <summary>
+            Gets if the connection is connected.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType">
+            <summary>
+            PF300 pressure sensor enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.DiffFlowHigh">
+            <summary>
+            Difference pressure over high flow sieve, -/+ 12.5 mbar.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.DiffFlowLow">
+            <summary>
+            Difference pressure over low flow sieve, -/+ 12.5 mbar.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.DiffFlowExt">
+            <summary>
+            External difference pressure, -/+ 12.5 mbar.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.Diff4">
+            <summary>
+            External difference pressure, +/- 150mbar.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.HighFlow">
+            <summary>
+            Pressure in high flow channel, 0...150mbar.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.ExtFlow">
+            <summary>
+            Pressure in external flow channel, 0...150mbar.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.High">
+            <summary>
+            Pressure high, 0...10bar.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType.Ambient">
+            <summary>
+            Ambient pressure, 0...1150mbar.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType">
+            <summary>
+            PF300 calibration state enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.Idle">
+            <summary>
+            Idle
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.Error">
+            <summary>
+            Error during calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.O2Wait100">
+            <summary>
+            O2 calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.O2Read100">
+            <summary>
+            O2 calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.O2Wait21">
+            <summary>
+            O2 calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.O2Read21">
+            <summary>
+            O2 calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.O2WaitFinish">
+            <summary>
+            O2 calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.O2Finish">
+            <summary>
+            O2 calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DiffPressWaitRead">
+            <summary>
+            Offset adjustement of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DiffPressRead">
+            <summary>
+            Offset adjustement of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DiffPressWaitFinish">
+            <summary>
+            Offset adjustement of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DiffPressFinish">
+            <summary>
+            Offset adjustement of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainWaitReadOffset">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainReadOffset">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainWaitReadHigh1">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainReadHigh1">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainWaitReadHigh2">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainReadHigh2">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainWaitFinish">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.PressGainFinish">
+            <summary>
+            Gain adjust of pressure sensors.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.FlowWaitNext">
+            <summary>
+            Flow calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.FlowRead">
+            <summary>
+            Flow calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.FlowWaitFinish">
+            <summary>
+            Flow calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.FlowFinish">
+            <summary>
+            Flow calibration.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DriftStart">
+            <summary>
+            Drift compensation.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DriftReadReference">
+            <summary>
+            Drift compensation.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DriftWaitTemperature">
+            <summary>
+            Drift compensation.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.DriftReadNext">
+            <summary>
+            Drift compensation.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.StartupDriftWaitNext">
+            <summary>
+            Drift compensation during startup.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.StartupDriftReadNext">
+            <summary>
+            Drift compensation during startup.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationStateType.Unknown">
+            <summary>
+            Unknow calibration state (should be last state).
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandInit">
+            <summary>
+            Class for a PF300 command "Init".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandInit.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandInit.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationGetStatus">
+            <summary>
+            Class for a PF300 command "CalibrationGetStatus".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationGetStatus.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationGetStatus.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataType">
+            <summary>
+            PF300 receive data type enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataType.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataType.Command">
+            <summary>
+            Command
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataType.RealTimeValues">
+            <summary>
+            Real time actual values (5ms)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataType.AllValues">
+            <summary>
+            All actual values (100ms)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataType.Calibration">
+            <summary>
+            Calibration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataType.Setting">
+            <summary>
+            Setting
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingFactory">
+            <summary>
+            Factory class to create PF300 setting classes.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingFactory.CreateInstance(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationNextStep">
+            <summary>
+            Class for a PF300 command "CalibrationNextStep".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationNextStep.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationNextStep.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Ftdi.FtdiDevice">
+            <summary>
+            Class for a FTDI USB device.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiDevice.#ctor(System.UInt32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="index">device index</param>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Ftdi.FtdiDevice.SerialNumber">
+            <summary>
+            Gets the serial number.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Equipment">
+            <summary>
+            Class for a PF300 equipment.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.PARSEREADDATA_CYCLE_WAITTIME_MS">
+            <summary>
+            Wait time in milliseconds to wait after each parse read data cycle.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.HANDLECONNECTION_CYCLE_WAITTIME_MS">
+            <summary>
+            Wait time in milliseconds to wait after each handle connection cycle.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.HANDLECONNECTION_CYCLECOUNT_LIVECHECK">
+            <summary>
+            Cycle count to send the live check command.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.SEND_QUEUE_SIZE_MAX">
+            <summary>
+            Maximum element count of send queue.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.RECEIVE_QUEUE_SIZE_MAX">
+            <summary>
+            Maximum element count of receive queue.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.ACTUALDATA_QUEUE_SIZE_MAX">
+            <summary>
+            Maximum element count of actual data queue.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.ACTUALDATA_TIMESTAMP_CORRECTION_TICKS_MAX">
+            <summary>
+            Timstamp correction increment maximum: 500 Ticks => correct im maximum 0.05ms every 5ms.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.ACTUALDATA_TIMESTAMP_CORRECTION_TICKS_PER_OFFSET_MS">
+            <summary>
+            Timstamp correction increment per ms: correct 5 Ticks => correct 0.0005ms per ms offset every 5ms.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.ACTUALDATA_TIMESTAMP_CORRECTION_TIMEOFFSET_MEANCOUNT">
+            <summary>
+            Timestamp correction time offset mean count.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.ASYNC_READ_WAITTIME_MS">
+            <summary>
+            Wait time in milliseconds to wait between during async read retries.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Equipment.ASYNC_READ_RETRY_COUNT">
+            <summary>
+            Retry count for async read.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.#ctor(imtmedical.Pf300Communication.Base.DeviceIfc)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="device">physical device</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.Activate">
+            <summary>
+            Activates the thread to handle connection and receive data queue.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.Deactivate">
+            <summary>
+            Deactivates the threads to handle connection and receive data queue.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.ConsumeActualData(System.Collections.Generic.IList{imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual}@)">
+            <summary>
+            Consumes all data in actual data queue.
+            </summary>
+            <param name="receiveData"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetVersion">
+            <summary>
+            Gets the version of the DLL.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetFirmwareVersion">
+            <summary>
+            Gets the firmware version of the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetSerialNumber">
+            <summary>
+            Gets the serial number of the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetLastCalibrationDate">
+            <summary>
+            Gets the last calibration date the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetTriggerSetting">
+            <summary>
+            Gets the trigger setting from the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SetTriggerSetting(imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger)">
+            <summary>
+            Sets the trigger setting on the device
+            </summary>
+            <param name="settingTrigger"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetTriggerRespMode">
+            <summary>
+            Gets the trigger respiratory mode from the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SetTriggerRespMode(imtmedical.Pf300Communication.Pf300Setting.Pf300TriggerRespModeType)">
+            <summary>
+            Sets the trigger respiratory mode on the device
+            </summary>
+            <param name="respMode"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetBaseFlowSetting">
+            <summary>
+            Gets the base flow setting from the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SetBaseFlowSetting(imtmedical.Pf300Communication.Pf300Setting.Pf300SettingBaseFlow)">
+            <summary>
+            Sets the base flow setting on the device
+            </summary>
+            <param name="settingBaseFlow"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetStandardisation">
+            <summary>
+            Gets the standardisation from the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SetStandardisation(imtmedical.Pf300Communication.Pf300Setting.Pf300StandardisationType)">
+            <summary>
+            Sets the standardisation on the device
+            </summary>
+            <param name="standardisation"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetGas">
+            <summary>
+            Gets the gas from the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SetGas(imtmedical.Pf300Communication.Pf300Setting.Pf300GasType)">
+            <summary>
+            Sets the gas on the device
+            </summary>
+            <param name="gas"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetOxyConcentrationSetting">
+            <summary>
+            Gets the oxygen concentration setting from the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SetOxyConcentrationSetting(System.Int32)">
+            <summary>
+            Sets the oxygen concentration setting on the device
+            </summary>
+            <param name="oxyConcentration"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.GetCustomGasSetting">
+            <summary>
+            Gets the custom gas setting from the device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SetCustomGasSetting(imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas)">
+            <summary>
+            Sets the custom gas setting on the device
+            </summary>
+            <param name="settingCustomGas"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.CalibrationStartOffset">
+            <summary>
+            Starts offset calibration on device.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.CalibrationStartOxygen(imtmedical.Pf300Communication.Pf300Data.Pf300PressureSensorType,imtmedical.Pf300Communication.Pf300Data.Pf300FlowDirectionType)">
+            <summary>
+            Starts oxygen calibration on device.
+            </summary>
+            <param name="pressureSensor"></param>
+            <param name="flowDirection"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.CalibrationNextStep">
+            <summary>
+            Goes to next step in calibration.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.CalibrationStop">
+            <summary>
+            Aborts calibration.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.CalibrationGetStatus">
+            <summary>
+            Gets the calibration status
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.SendAsynch(System.String)">
+            <summary>
+            Sends data asynchronously.
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.HandleConnection">
+            <summary>
+            Worker thread method: handles the connection to the device (write and read).
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.ReceiveQueueEnqueue(System.String)">
+            <summary>
+            Enqueus data to receive queue.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.ParseReceiveData">
+            <summary>
+            Worker thread method: parses the received data in receive queue.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Equipment.ProcessReceiveData(System.String,System.Boolean)">
+            <summary>
+            Processes received data lines.
+            </summary>
+            <param name="rawData">The raw data.</param>
+            <param name="isMostCurrentValue">if set to <c>true</c> [is most current value].</param>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Equipment.Device">
+            <summary>
+            Gets the physical device.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataFactory">
+            <summary>
+            Factory class to create PF300 receive data classes.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataFactory.CreateInstance(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingGas">
+            <summary>
+            Class for a PF300 gas setting.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingGas.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingGas.Set(System.String)">
+            <summary>
+            Sets the specified raw data.
+            </summary>
+            <param name="rawData">The raw data.</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingGas.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingGas.Gas">
+            <summary>
+            Gets or sets the gas.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType">
+            <summary>
+            PF300 command type enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.Init">
+            <summary>
+            Init
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.SoftwareCompatibility">
+            <summary>
+            Software compatibility
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.SettingsLoad">
+            <summary>
+            Load settings
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.SettingsSend">
+            <summary>
+            Send settings
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.LiveCheck">
+            <summary>
+            Live check
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationHistory">
+            <summary>
+            Calibration history
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationStart">
+            <summary>
+            Calibration start
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationGetStatus">
+            <summary>
+            Get calibration status
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationNextStep">
+            <summary>
+            Go to next calibration step
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationAdjustPressure">
+            <summary>
+            Pressure calibration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationStop">
+            <summary>
+            Stop calibration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.OperatingMode">
+            <summary>
+            Operating mode
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.PcSwLockState">
+            <summary>
+            PC software lock state
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationGetAdjustPressure">
+            <summary>
+            Get pressure calibration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationSetFlowArray">
+            <summary>
+            Set flow array calibration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationGetAdjustFlow">
+            <summary>
+            Get flow calibration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.CalibrationSetAdjustFlow">
+            <summary>
+            Set flow calibration
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetCalibrationData">
+            <summary>
+            Get calibration data
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetDriftData">
+            <summary>
+            Get drift data
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetFlowRefData">
+            <summary>
+            Get flow reference data
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetFlowCalibFlow">
+            <summary>
+            Get flow calibration flow
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetFlowCalibPressure">
+            <summary>
+            Get flow calibration pressure
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetImpactPressure">
+            <summary>
+            Get impact pressure
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetLastCalibDate">
+            <summary>
+            Get last calibration date
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetSerialNumber">
+            <summary>
+            Get serial number
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetIrmaAvailable">
+            <summary>
+            Get if IRMA sensor is available
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetHwOption">
+            <summary>
+            Get hardware options
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Command.Pf300CommandType.GetDeviceType">
+            <summary>
+            Get the device type: medical or industrial (Firmware >= V4.1.2)
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Base.DeviceCollectionIfc">
+            <summary>
+            Container interface for devices.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.DeviceCollectionIfc.ReadDeviceList">
+            <summary>
+            Reads the list of available devices and updates the DeviceList property.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceCollectionIfc.DeviceList">
+            <summary>
+            Gets the list of available devices.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300Data">
+            <summary>
+            General class for PF300 data.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300Data.GetReceiveDataType(System.String)">
+            <summary>
+            Gets the receive data type for a receive data string.
+            </summary>
+            <param name="receiveData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300Data.GetCommandType(System.String)">
+            <summary>
+            Gets the command type for a receive data string with data type command.
+            </summary>
+            <param name="receiveData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingBaseFlow">
+            <summary>
+            Class for a PF300 base flow settings.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingBaseFlow.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingBaseFlow.Set(System.String)">
+            <summary>
+            Sets the specified raw data.
+            </summary>
+            <param name="rawData">The raw data.</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingBaseFlow.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingBaseFlow.Value">
+            <summary>
+            Gets or sets the base flow value.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingBaseFlow.Enabled">
+            <summary>
+            Gets or sets the base flow enabled.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandSettingsSend">
+            <summary>
+            Class for a PF300 command "SettingsSend".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandSettingsSend.#ctor(imtmedical.Pf300Communication.Pf300Setting.Pf300SettingIfc)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandSettingsSend.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual">
+            <summary>
+            Class for a PF300 receive data element.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.HEXPLACES_16BIT">
+            <summary>
+            Number of hexadecimal places for a 16 bit value representation.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.HEXPLACES_32BIT">
+            <summary>
+            Number of hexadecimal places for a 32 bit value representation.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PF300_SAMPLE_RATE_TICKS">
+            <summary>
+            PF300 Sample Rate [ms]
+            Long time measurement with sample rate 5ms:
+            Start: 28.07.2010 17:45:00 PF300 Timestamp Increment Offset:    0s
+            End:   29.07.2010 08:30:00 PF300 Timestamp Increment Offset: -182s (08:26:58)
+                   -> pTime = -182s / 53100s * 100% = -0.343%
+                   -> NewSampleRate = 5ms / (53100-182) * 53100 = 5.017196417ms = 50172 Ticks
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.SetTimeStamp(System.DateTime)">
+            <summary>
+            Sets the TimeStamp from Base TimeStamp and 5ms increments.
+            </summary>
+            <param name="baseTimeStamp">TimeStamp at increment 0</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.GetBaseTimeStamp">
+            <summary>
+            Gets the calculated Base TimeStamp at increment 0 based on current time.
+            </summary>
+            <returns>TimeStamp at increment 0</returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ParseValue16Bit(System.Int32,System.Single)">
+            <summary>
+            Parses and scales a 16 bit value out of the valueData string.
+            </summary>
+            <param name="startIndex"></param>
+            <param name="scaleFactor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ParseValue32Bit(System.Int32,System.Single)">
+            <summary>
+            Parses and scales a 32 bit value out of the valueData string.
+            </summary>
+            <param name="startIndex"></param>
+            <param name="scaleFactor"></param>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.TimeIncrements">
+            <summary>
+            Gets the time increment value.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.TimeStamp">
+            <summary>
+            Gets the time stamp.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ValueData">
+            <summary>
+            Gets the data value.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.FlowHigh">
+            <summary>
+            Flow High [l/min]
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.FlowLow">
+            <summary>
+            Flow Low [l/min]
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureLow">
+            <summary>
+            Pressure Low [mbar]
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureDiff">
+            <summary>
+            Pressure Difference [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureHighFlow">
+            <summary>
+            Pressure High Flow [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureVacuum">
+            <summary>
+            Pressure Vacuum [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.VolumeHighFlow">
+            <summary>
+            Volume High Flow [ml].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.VolumeLowFlow">
+            <summary>
+            Volume Low Flow [ml].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.VolumeExtFlow">
+            <summary>
+            Volume External Flow [ml].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Oxygen">
+            <summary>
+            Oxygen Concentration [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Humidity">
+            <summary>
+            Humitdity [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Temperature">
+            <summary>
+            Temperature [°C].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.DewPointTemp">
+            <summary>
+            Dew Point Temperature [°C].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.HighPressure">
+            <summary>
+            High Pressure [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureAmbient">
+            <summary>
+            Ambient Pressure [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureDiffHighFlow">
+            <summary>
+            Differential Pressure High Flow [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureDiffLowFlow">
+            <summary>
+            Differential Pressure Low Flow [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PressureDiffExternal">
+            <summary>
+            Differential Pressure External [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.TemperatureBoard">
+            <summary>
+            Temperatur on PCB [°C].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.InspTime">
+            <summary>
+            Inspiration Time [s].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ExpTime">
+            <summary>
+            Expiration Time [s].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.InspToExp">
+            <summary>
+            Inspiration Time / Expiration Time [-].
+            negative value -> 1:value (e.g. value = -1.4 -> 1:1.4)
+            positive value -> value:1 (e.g. value = +1.4 -> 1.4:1)
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.BreathRate">
+            <summary>
+            Breath Rate [beats/min].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Vti">
+            <summary>
+            Volume Inspiration [ml].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Vte">
+            <summary>
+            Volume Expiration [ml].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Vi">
+            <summary>
+            Flow Inspiration [l/min].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Ve">
+            <summary>
+            Flow Expiration [l/min].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PeakPressure">
+            <summary>
+            Peak Pressure [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.MeanPressure">
+            <summary>
+            Mean Pressure [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PeepCpap">
+            <summary>
+            Peep Cpap [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.TiOverTcycle">
+            <summary>
+            Inspiration Time / Cycle Time [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PeakFlowInsp">
+            <summary>
+            Peak Flow Inspiration [l/min].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PeakFlowExp">
+            <summary>
+            Peak Flow Expiration [l/min].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.CO2Irma">
+            <summary>
+            CO2 concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.N2OIrma">
+            <summary>
+            N2O concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.O2Irma">
+            <summary>
+            O2 concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.HalothaneIrma">
+            <summary>
+            Halothane concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.EnfluraneIrma">
+            <summary>
+            Enflurane concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.IsofluraneIrma">
+            <summary>
+            Isoflurane concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.SevofluraneIrma">
+            <summary>
+            Sevoflurane concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.DesfluraneIrma">
+            <summary>
+            Desflurane concentration from IRMA Sensor [%].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.PlateauPressure">
+            <summary>
+            PlateauPressure [mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.Compliance">
+            <summary>
+             [ml/mbar].
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.UseHighFlowValueScaling">
+            <summary>
+            Gets or sets high flow value scaling.
+            If true:  Vti, Vte have 0 decimals, Vi, Ve, PeakFlowInsp, PeakFlowExp have 1 decimals
+            If false: Vti, Vte have 1 decimals, Vi, Ve, PeakFlowInsp, PeakFlowExp have 2 decimals
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum">
+            <summary>
+            Definition of all measuring values from device.
+            00-08: every 5ms
+            09-42: every 100ms
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.FlowHigh">
+            <summary>
+            Flow High (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.FlowLow">
+            <summary>
+            Flow Low (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureLow">
+            <summary>
+            Pressure Low (16bit), V3.2.0: instead of FLOW_EXT (not used).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureDiff">
+            <summary>
+            Pressure Difference (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureHighFlow">
+            <summary>
+            Pressure High Flow (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureVacuum">
+            <summary>
+            Pressure Vacuum (16bit), V3.2.0: instead of PRESSURE_EXTERNAL_FLOW (not used).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.VolumeHighFlow">
+            <summary>
+            Volume High Flow (32bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.VolumeLowFlow">
+            <summary>
+            Volume Low Flow (32bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.VolumeExtFlow">
+            <summary>
+            Volume External Flow (32bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Oxygen">
+            <summary>
+            Oxygen Concentration (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Humidity">
+            <summary>
+            Humitdity (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Temperature">
+            <summary>
+            Temperature (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.DewPointTemp">
+            <summary>
+            Dew Point Temperature (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.HighPressure">
+            <summary>
+            High Pressure (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureAmbient">
+            <summary>
+            Ambient Pressure (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureDiffHighFlow">
+            <summary>
+            Differential Pressure High Flow.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureDiffLowFlow">
+            <summary>
+            Differential Pressure Low Flow (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PressureDiffExternal">
+            <summary>
+            Differential Pressure External (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.TemperatureBoard">
+            <summary>
+            Temperatur on PCB (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.InspTime">
+            <summary>
+            Inspiration Time (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.ExpTime">
+            <summary>
+            Expiration Time (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.InspToExp">
+            <summary>
+            Inspiration Time / Expiration Time  (16bit)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.BreathRate">
+            <summary>
+            Breath Rate (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Vti">
+            <summary>
+            Volume Inspiration (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Vte">
+            <summary>
+            Volume Expiration (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Vi">
+            <summary>
+            Flow Inspiration (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Ve">
+            <summary>
+            Flow Expiration (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PeakPressure">
+            <summary>
+            Peak Pressure (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.MeanPressure">
+            <summary>
+            Mean Pressure (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PeepCpap">
+            <summary>
+            Peep Cpap (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.TiOverTcycle">
+            <summary>
+            Inspiration Time / Cycle Time (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PeakFlowInsp">
+            <summary>
+            Peak Flow Inspiration (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PeakFlowExp">
+            <summary>
+            Peak Flow Expiration (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.CO2Irma">
+            <summary>
+            CO2 concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.N2OIrma">
+            <summary>
+            N2O concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.O2Irma">
+            <summary>
+            O2 concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.HalothaneIrma">
+            <summary>
+            Halothane concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.EnfluraneIrma">
+            <summary>
+            Enflurane concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.IsofluraneIrma">
+            <summary>
+            Isoflurane concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.SevofluraneIrma">
+            <summary>
+            Sevoflurane concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.DesfluraneIrma">
+            <summary>
+            Desflurane concentration from IRMA Sensor (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.PlateauPressure">
+            <summary>
+            Plateau Pressure (16bit).
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataActual.ActualValueEnum.Compliance">
+            <summary>
+            Compliance (16bit).
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStop">
+            <summary>
+            Class for a PF300 command "CalibrationStop".
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStop.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Command.Pf300CommandCalibrationStop.GetCommandString">
+            <summary>
+            Gets the command string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationType">
+            <summary>
+            PF300 calibration type enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationType.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationType.Oxygen">
+            <summary>
+            Oxygen
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationType.Offset">
+            <summary>
+            Offset
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationType.Gain">
+            <summary>
+            Gain
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Calibration.Pf300CalibrationType.Flow">
+            <summary>
+            Flow
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataSetting">
+            <summary>
+            Class for a PF300 receive data element.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataSetting.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawData">raw data</param>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataSetting.m_data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataSetting.m_setting">
+            <summary>
+            Setting
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataSetting.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Data.Pf300ReceiveDataSetting.Setting">
+            <summary>
+            Gets the setting.
+            </summary>
+            <value>The setting.</value>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSignalType">
+            <summary>
+            Trigger signal enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSignalType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSignalType.Flow">
+            <summary>
+            Flow
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.P300TriggerSignalType.Pressure">
+            <summary>
+            Pressure
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTriggerRespMode">
+            <summary>
+            Class for a PF300 trigger respiratory mode settings.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTriggerRespMode.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTriggerRespMode.Set(System.String)">
+            <summary>
+            Sets the specified raw data.
+            </summary>
+            <param name="rawData">The raw data.</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTriggerRespMode.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTriggerRespMode.RespMode">
+            <summary>
+            Gets or sets the trigger respiratory mode.
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Ftdi.FtdiDeviceCollection">
+            <summary>
+            Container class for FTDI USB devices.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Base.DeviceCollectionAbs">
+            <summary>
+            Abstract container base class for devices.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.DeviceCollectionAbs.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.DeviceCollectionAbs.ReadDeviceList">
+            <summary>
+            Reads the list of available devices and updates the DeviceList property.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Base.DeviceCollectionAbs.ReadDeviceListInternal">
+            <summary>
+            Reads the device list internal.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Base.DeviceCollectionAbs.m_deviceDictionary">
+            <summary>
+            Device dictionary
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Base.DeviceCollectionAbs.m_deviceList">
+            <summary>
+            Device list
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Base.DeviceCollectionAbs.DeviceList">
+            <summary>
+            Gets the list of available devices.
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiDeviceCollection.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Ftdi.FtdiDeviceCollection.ReadDeviceListInternal">
+            <summary>
+            Reads the device list internal.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger">
+            <summary>
+            Class for a PF300 trigger settings.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.Set(System.String)">
+            <summary>
+            Sets the setting from raw data.
+            </summary>
+            <param name="rawData"></param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetSource(System.String)">
+            <summary>
+            Gets the trigger source.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetSourceString(imtmedical.Pf300Communication.Pf300Setting.P300TriggerSourceType)">
+            <summary>
+            Gets the trigger source raw string.
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetSignal(System.String)">
+            <summary>
+            Gets the trigger signal.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetSignalString(imtmedical.Pf300Communication.Pf300Setting.P300TriggerSignalType)">
+            <summary>
+            Gets the trigger signal string.
+            </summary>
+            <param name="signal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetValue(System.String)">
+            <summary>
+            Gets the trigger value.
+            </summary>
+            <param name="rawData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetValueString(System.Single)">
+            <summary>
+            Gets the trigger value string.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetEdge(System.String)">
+            <summary>
+            Gets the trigger edge.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetEdgeString(imtmedical.Pf300Communication.Pf300Setting.TriggerEdgeType)">
+            <summary>
+            Gets the trigger edge string.
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetEdgeDisplayString(imtmedical.Pf300Communication.Pf300Setting.TriggerEdgeType)">
+            <summary>
+            Gets the string representation of an edge.
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetDelay(System.String)">
+            <summary>
+            Gets the delay value.
+            </summary>
+            <param name="rawData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetDelayString(System.Int32)">
+            <summary>
+            Gets the trigger delay string.
+            </summary>
+            <param name="delay"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.GetRawValue(System.String)">
+            <summary>
+            Gets the raw value of a trigger field.
+            </summary>
+            <param name="rawData"></param>
+            <returns>value or -1 on error</returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.Source">
+            <summary>
+            Gets or sets the trigger source.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.StartSignal">
+            <summary>
+            Gets or sets the trigger start signal.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.StopSignal">
+            <summary>
+            Gets or sets the trigger stop signal.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.StartValue">
+            <summary>
+            Gets or sets the trigger start value.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.StopValue">
+            <summary>
+            Gets or sets the trigger stop value.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.StartEdge">
+            <summary>
+            Gets or sets the trigger start edge.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.StopEdge">
+            <summary>
+            Gets or sets the trigger stop edge.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.Delay">
+            <summary>
+            Gets or sets the trigger delay.
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.TriggerField.ValueId">
+            <summary>
+            Value Id (not used)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingTrigger.TriggerField.Delay">
+            <summary>
+            Delay (Firmware >= V3.0.1)
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.TriggerEdgeType">
+            <summary>
+            Trigger edge enumerator.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.TriggerEdgeType.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.TriggerEdgeType.Positive">
+            <summary>
+            Positive (rising edge)
+            </summary>
+        </member>
+        <member name="F:imtmedical.Pf300Communication.Pf300Setting.TriggerEdgeType.Negative">
+            <summary>
+            Negative (falling edge)
+            </summary>
+        </member>
+        <member name="T:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas">
+            <summary>
+            Class for a PF300 custom gas setting.
+            <author>egle</author>
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas.Set(System.String)">
+            <summary>
+            Sets the specified raw data.
+            </summary>
+            <param name="rawData">The raw data.</param>
+        </member>
+        <member name="M:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas.GetCommandData">
+            <summary>
+            Gets the command data string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas.Density">
+            <summary>
+            Gets or sets the density.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas.Viscosity">
+            <summary>
+            Gets or sets the viscosity.
+            </summary>
+        </member>
+        <member name="P:imtmedical.Pf300Communication.Pf300Setting.Pf300SettingCustomGas.ViscosityCoeff">
+            <summary>
+            Gets or sets the viscosity coefficient.
+            </summary>
+        </member>
+    </members>
+</doc>
