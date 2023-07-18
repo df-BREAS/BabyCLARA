@@ -29,6 +29,8 @@ namespace BabyCLARA.FlowAnalyzerInterface
 
         public float Pressure { get; private set; }
 
+        public float DiffPressure { get; private set; }
+
         public bool Init()
         {
             if (IsInitialized)

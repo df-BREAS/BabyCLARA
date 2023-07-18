@@ -72,7 +72,9 @@ namespace BabyCLARA
             // Sampling interval is 10 ms which gives a sampling freuqency of 100 Hz
             const double SamplingInterval = 10;
             double simTime = 0;
-        
+
+            StreamWriter sr = new("CLARA_output.txt");
+            sr.WriteLine("Time_s, Flow_LPM, Pressure_cmH2O, PDiff_cmH2O, Pmus_cmH2O, SaO2_%, PmCO2_mmHg, Dchemo");
             while (true)
             {
                 // Take time measurement 
@@ -82,16 +84,19 @@ namespace BabyCLARA
                 {
                     double measuredPressure = flowAnalyzer.Pressure;
                     double measuredFlow = flowAnalyzer.Flow;
-                    MainSimLoop(patient, globals, mainModel, auxBlocks, 0,
-                        0, simTime);
-                    Console.WriteLine($"{simTime}, {patient.Pmus}");
-                    analogChannelWriter.WriteSingleSample(true, patient.Pmus + SignalBias);
+                    double measuredPDiff = flowAnalyzer.DiffPressure;
+                    MainSimLoop(patient, globals, mainModel, auxBlocks, measuredFlow/60,
+                        measuredPressure, simTime);
+                    //Console.WriteLine($"Time: {simTime}, Flow: {measuredFlow}, Pressure: {measuredPressure}, Pdiff: {measuredPDiff } Pmus: {patient.Pmus}");
+                    sr.WriteLine($"{simTime}, {measuredFlow}, {measuredPressure}, {measuredPDiff}, {patient.Pmus}, {patient.SaO2}, {patient.PmCO2}, {patient.Dchemo}");
+                    analogChannelWriter.WriteSingleSample(true, (patient.Pmus/10 ) + SignalBias);
                     prevTime = elapsedTime;
                     simTime += 0.01;
                 }
 
                 if (stopwatch.Elapsed.TotalSeconds > globals.MaxSimTime) { break; }
             }
+            sr.Close();
 
         }
 

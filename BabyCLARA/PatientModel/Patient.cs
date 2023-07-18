@@ -137,6 +137,9 @@ namespace BabyCLARA.PatientModel
         // Main Model output variables
         public double Dchemo;
         public double Pmus;
+        public double SaO2;
+        public double PmCO2;
+
 
         public void LoadPatientCatalog(string patient_type)
         {

@@ -24,6 +24,8 @@
 
         public float Pressure => _flowAnalyzer != null ? _flowAnalyzer.Pressure : 0;
 
+        public float DiffPressure => _flowAnalyzer != null ? _flowAnalyzer.DiffPressure : 0;
+
         public bool Init()
         {
             foreach (IFlowAnalyzer flowAnalyzer in _supportedFlowAnalyzers)

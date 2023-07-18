@@ -1,4 +1,6 @@
-﻿namespace BabyCLARA.FlowAnalyzerInterface
+﻿using System.IO;
+
+namespace BabyCLARA.FlowAnalyzerInterface
 {
     interface IFlowAnalyzer
     {
@@ -7,6 +9,8 @@
         float Flow { get; }
 
         float Pressure { get; }
+
+        float DiffPressure { get; }
 
         bool Init();
 

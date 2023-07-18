@@ -30,6 +30,8 @@ namespace BabyCLARA.FlowAnalyzerInterface
 
         public float Pressure { get; private set; }
 
+        public float DiffPressure { get; private set; }
+
         public bool Init()
         {
             if (IsInitialized)
@@ -111,6 +113,7 @@ namespace BabyCLARA.FlowAnalyzerInterface
 
                             Flow = valuesFastData.Flow;
                             Pressure = valuesFastData.pChannel;
+                            DiffPressure = valuesFastData.PDiff;
                         }
                         else if (remoteObject is ValuesAllData)
                         {
@@ -118,6 +121,7 @@ namespace BabyCLARA.FlowAnalyzerInterface
 
                             Flow = valuesAllData.Flow;
                             Pressure = valuesAllData.pChannel;
+                            DiffPressure = valuesAllData.PDiff;
                         }
                     }
                 }

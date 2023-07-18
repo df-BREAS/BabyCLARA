@@ -638,7 +638,7 @@ namespace BabyCLARA.PhysiologicalModel
             airLungAlvMixModelInput.Pao = measuredPressure;             // CITREX PRESSURE MEASUREMENT
             airLungAlvMixModelInput.cv_CO2 = bodyTissueModelOutput.Cv_CO2;
             airLungAlvMixModelInput.cv_O2 = bodyTissueModelOutput.Cv_O2;
-            airLungAlvMixModelInput.Qpt_source = airLungAlvMixModelOutput.Qpt_sclm;  // measuredFlow;          // CITREX FLOW MEASUREMENT
+            airLungAlvMixModelInput.Qpt_source = measuredFlow; //airLungAlvMixModelOutput.Qpt_sclm;  // measuredFlow (converted to LPS);          // CITREX FLOW MEASUREMENT
             Marshal.StructureToPtr(airLungAlvMixModelInput, airLungAlvMixModelInput_ptr, true);
             AirwayLungsAlveolarMixingModel(airLungAlvMixModelInput_ptr, airLungAlvMixModelOutput_ptr, SimTimeSec);
             airLungAlvMixModelOutput = (AirLungAlvMixModelOutputs)Marshal.PtrToStructure(airLungAlvMixModelOutput_ptr, typeof(AirLungAlvMixModelOutputs))!;
@@ -649,6 +649,10 @@ namespace BabyCLARA.PhysiologicalModel
             Marshal.StructureToPtr(heartVascModelInput, heartVascModelInput_ptr, true);
             HeartVasculatureMixingModel(heartVascModelInput_ptr, heartVascModelOutput_ptr, SimTimeSec);
             heartVascModelOutput = (HeartVascModelOutputs)Marshal.PtrToStructure(heartVascModelOutput_ptr, typeof(HeartVascModelOutputs))!;
+
+            // Set other output variables for printing
+            patient.PmCO2 = heartVascModelOutput.PmCO2_mmHg;
+            patient.SaO2 = periCtrlModelOutput.SaO2;
 
             //string output = $"{SimTimeSec}, {patient.Dchemo}, {btcModelOutput.Gw_WakeSleepMR}, {heartVascModelOutput.PmCO2_mmHg}, {periCtrlModelOutput.SaO2}, {airLungAlvMixModelOutput.Vpt}, " +
             //    $"{airLungAlvMixModelOutput.Qpt_sclm}, {patient.Pmus}";
