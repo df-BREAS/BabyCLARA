@@ -20,7 +20,7 @@ namespace BabyCLARA
 
             // Declare patient type and load up the variables from the catalog
             string type = "OHS_lateral";
-            PatientPosture posture = PatientPosture.NOT_LATERAL;
+            PatientPosture posture = PatientPosture.LATERAL;
             Patient patient = new(type, posture);
             double maxSimTime = 600;
             SimGlobals globals = new(maxSimTime);
@@ -52,7 +52,6 @@ namespace BabyCLARA
             CleanUpSim(mainModel, auxBlocks);
         }
 
-        
 
         // Main loop for CLARA. Collects data from flow analyzer, runs ten iterations of the
         // Control of Breathing model simulation, and outputs voltage from the DAQ every 10 ms.
@@ -64,17 +63,19 @@ namespace BabyCLARA
             Console.WriteLine("Inside RunCLARA function");
 
             // Test
-            const double MinVoltage = 0;
             const double MaxVoltage = 10;
-            const double SignalAmplitude = MaxVoltage / 2;
             const double SignalBias = MaxVoltage / 2;
 
             // Sampling interval is 10 ms which gives a sampling freuqency of 100 Hz
             const double SamplingInterval = 10;
             double simTime = 0;
 
-            StreamWriter sr = new("CLARA_output.txt");
-            sr.WriteLine("Time_s, Flow_LPM, Pressure_cmH2O, PDiff_cmH2O, Pmus_cmH2O, SaO2_%, PmCO2_mmHg, Dchemo");
+            // Prepare output file
+            StreamWriter sr = new("CLARA_output_SleepTest_7_19_2023.txt");
+            sr.WriteLine("Time_s, Flow_LPM, Pressure_cmH2O, PDiff_cmH2O, Pmus_cmH2O, SaO2_%, PmCO2_mmHg, Dchemo, SleepState");
+
+            bool sleepEnganged = false;
+            // Run CLARA at a frequency of 100 Hz
             while (true)
             {
                 // Take time measurement 
@@ -82,14 +83,31 @@ namespace BabyCLARA
 
                 if (elapsedTime - prevTime >= SamplingInterval)
                 {
+                    // Take measurements from Citrex H4 Flow Analyzer
                     double measuredPressure = flowAnalyzer.Pressure;
                     double measuredFlow = flowAnalyzer.Flow;
                     double measuredPDiff = flowAnalyzer.DiffPressure;
+
+                    // If desired, manually change the sleep stage
+                    if (simTime > 10 && !sleepEnganged)
+                    {
+                        Console.WriteLine("Putting patient to sleep");
+                        patient.patientManualControl = true;
+                        patient.SleepLightsOut = 1;
+                        patient.SleepManualIncrement = 0;
+                        sleepEnganged = true;
+                    }
+
+                    // Run 10 interations of the Control of Breathing Model
                     MainSimLoop(patient, globals, mainModel, auxBlocks, measuredFlow/60,
                         measuredPressure, simTime);
+
+                    // Write to file/console
                     //Console.WriteLine($"Time: {simTime}, Flow: {measuredFlow}, Pressure: {measuredPressure}, Pdiff: {measuredPDiff } Pmus: {patient.Pmus}");
-                    sr.WriteLine($"{simTime}, {measuredFlow}, {measuredPressure}, {measuredPDiff}, {patient.Pmus}, {patient.SaO2}, {patient.PmCO2}, {patient.Dchemo}");
-                    analogChannelWriter.WriteSingleSample(true, (patient.Pmus/10 ) + SignalBias);
+                    sr.WriteLine($"{simTime}, {measuredFlow}, {measuredPressure}, {measuredPDiff}, {patient.Pmus}, {patient.SaO2}, {patient.PmCO2}, {patient.Dchemo}, {patient.SleepState}");
+
+                    // Write to DAQ, update time variables
+                    analogChannelWriter.WriteSingleSample(true, (patient.Pmus / 10 ) + SignalBias);
                     prevTime = elapsedTime;
                     simTime += 0.01;
                 }

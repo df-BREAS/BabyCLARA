@@ -574,6 +574,11 @@ namespace BabyCLARA.PhysiologicalModel
             periCtrlModelOutput = (PeriCtrlModelOutputs)Marshal.PtrToStructure(periCtrlModelOutput_ptr, typeof(PeriCtrlModelOutputs))!;
 
             // Brain Tissue Compartment
+            if (patient.patientManualControl)
+            {
+                btcModelInput.SleepLightsOut = patient.SleepLightsOut;
+                btcModelInput.SleepManualIncr = patient.SleepManualIncrement;
+            }
             btcModelInput.Pmus_perception = breathEffortModelOutput.Penvelope;
             btcModelInput.D_Ve_drive = patient.Dchemo;
             btcModelInput.PaCO2 = lbtdModelOutput.PaCO2;
@@ -581,6 +586,11 @@ namespace BabyCLARA.PhysiologicalModel
             Marshal.StructureToPtr(btcModelInput, btcModelInput_ptr, true);
             BrainTissueCompartmentModel(btcModelInput_ptr, btcModelOutput_ptr, SimTimeSec);
             btcModelOutput = (BTCModelOutputs)Marshal.PtrToStructure(btcModelOutput_ptr, typeof(BTCModelOutputs))!;
+            if (patient.patientManualControl)
+            {
+                btcModelInput.SleepManualIncr = 0;
+                patient.patientManualControl = false;
+            }
 
             // Central Controller
             centCtrlModelInput.PtRate_nominal = patient.PtRate_nominal;
@@ -650,13 +660,10 @@ namespace BabyCLARA.PhysiologicalModel
             HeartVasculatureMixingModel(heartVascModelInput_ptr, heartVascModelOutput_ptr, SimTimeSec);
             heartVascModelOutput = (HeartVascModelOutputs)Marshal.PtrToStructure(heartVascModelOutput_ptr, typeof(HeartVascModelOutputs))!;
 
-            // Set other output variables for printing
+            // Store output variables for printing
             patient.PmCO2 = heartVascModelOutput.PmCO2_mmHg;
             patient.SaO2 = periCtrlModelOutput.SaO2;
-
-            //string output = $"{SimTimeSec}, {patient.Dchemo}, {btcModelOutput.Gw_WakeSleepMR}, {heartVascModelOutput.PmCO2_mmHg}, {periCtrlModelOutput.SaO2}, {airLungAlvMixModelOutput.Vpt}, " +
-            //    $"{airLungAlvMixModelOutput.Qpt_sclm}, {patient.Pmus}";
-            //outputFile.WriteLine(output);
+            patient.SleepState = btcModelOutput.SleepState;  
         }
 
 

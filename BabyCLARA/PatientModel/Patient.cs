@@ -72,6 +72,9 @@ namespace BabyCLARA.PatientModel
         {
             LoadPatientCatalog(patient_type);
             SetLateralPosture((double) posture);
+            patientManualControl = false;
+            SleepLightsOut = 0;
+            SleepManualIncrement = 0;
         }
 
         // Path for catalog of patient variables
@@ -139,6 +142,12 @@ namespace BabyCLARA.PatientModel
         public double Pmus;
         public double SaO2;
         public double PmCO2;
+        public double SleepState;
+
+        // Main Model variables for manual control of Patient Sleep State
+        public bool patientManualControl;
+        public double SleepLightsOut;
+        public double SleepManualIncrement;
 
 
         public void LoadPatientCatalog(string patient_type)
