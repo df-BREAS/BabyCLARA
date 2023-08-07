@@ -17,30 +17,30 @@ namespace BabyCLARA.PhysiologicalModel
 
         // Lung to Brain Transport Delay
         [DllImport("LBTDLL.dll")]
-        public static extern void InitLungToBrainTransportDelayModel();
+        static extern void InitLungToBrainTransportDelayModel();
 
         [DllImport("LBTDLL.dll")]
-        public static extern double LungToBrainTransportDelayModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
+        static extern double LungToBrainTransportDelayModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct LBTDModelInputs
+        protected struct LBTDModelInputs
         {
             public double PmCO2_mmHg;
             public double PmO2_mmHg;
             public double Tc_Khoo1982;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct LBTDModelOutputs
+        protected struct LBTDModelOutputs
         {
             public double PaCO2;
         }
 
         // Lung to Carotid Transport Delay
         [DllImport("LCTDLL.dll")]
-        public static extern void InitLungToCarotidTransportDelayModel();
+        static extern void InitLungToCarotidTransportDelayModel();
         [DllImport("LCTDLL.dll")]
-        public static extern void LungToCarotidTransportDelayModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
+        static extern void LungToCarotidTransportDelayModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct LCTDelayModelInputs
+        protected struct LCTDelayModelInputs
         {
             public double PmCO2;
             public double PmO2;
@@ -48,7 +48,7 @@ namespace BabyCLARA.PhysiologicalModel
             public double Tdeducted;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct LCTDelayModelOutputs
+        protected struct LCTDelayModelOutputs
         {
             public double PpCO2;
             public double PpO2;
@@ -57,12 +57,12 @@ namespace BabyCLARA.PhysiologicalModel
 
         // Peripheral (Carotid) Controller
         [DllImport("PCtlDLL.dll")]
-        public static extern void InitPeripheralControllerModel();
+        static extern void InitPeripheralControllerModel();
 
         [DllImport("PCtlDLL.dll")]
-        public static extern void PeripheralControllerModel(IntPtr input, IntPtr output, double SimTimeSec);
+        static extern void PeripheralControllerModel(IntPtr input, IntPtr output, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct PeriCtrlModelInputs
+        protected struct PeriCtrlModelInputs
         {
             public double PpCO2;
             public double PpO2;
@@ -71,7 +71,7 @@ namespace BabyCLARA.PhysiologicalModel
             public double SaO2Target;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct PeriCtrlModelOutputs
+        protected struct PeriCtrlModelOutputs
         {
             public double Peripheral_PCO2;
             public double DP;
@@ -81,12 +81,12 @@ namespace BabyCLARA.PhysiologicalModel
 
         // Brain Tissue Compartment Model (With Sleep State Machine)
         [DllImport("BrainTissueCompDLL.dll")]
-        public static extern void InitBrainTissueCompartmentModel();
+        static extern void InitBrainTissueCompartmentModel();
         [DllImport("BrainTissueCompDLL.dll")]
-        public static extern void BrainTissueCompartmentModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
+        static extern void BrainTissueCompartmentModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
 
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct BTCModelInputs
+        protected struct BTCModelInputs
         {
             public double D_Ve_drive;
             public double Pmus_perception;
@@ -106,7 +106,7 @@ namespace BabyCLARA.PhysiologicalModel
             public double MRbCO2;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct BTCModelOutputs
+        protected struct BTCModelOutputs
         {
             public uint arousal;
             public double Gw_WakeSleepMR;
@@ -118,12 +118,12 @@ namespace BabyCLARA.PhysiologicalModel
 
         // Central Controller (Medulla) DLL
         [DllImport("CentCtrlDLL.dll")]
-        public static extern void InitCentralControllerModel();
+        static extern void InitCentralControllerModel();
         [DllImport("CentCtrlDLL.dll")]
-        public static extern void CentralControllerModel(IntPtr inputs, IntPtr outputs, double SimTimeSec);
+        static extern void CentralControllerModel(IntPtr inputs, IntPtr outputs, double SimTimeSec);
 
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct CentCtrlModelInput
+        protected struct CentCtrlModelInput
         {
             public double PmCO2;
             public double Vpt;
@@ -137,7 +137,7 @@ namespace BabyCLARA.PhysiologicalModel
             public double Crs_linear;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct CentCtrlModelOutput
+        protected struct CentCtrlModelOutput
         {
             public double Ti;
             public double BrRate;
@@ -152,7 +152,7 @@ namespace BabyCLARA.PhysiologicalModel
         static extern double ChemoreflexDriveModel(IntPtr input, double SimTimeSec);
 
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct ChemRefDriveInput
+        protected struct ChemRefDriveInput
         {
             public double SaO2;
             public double Dp;
@@ -168,12 +168,12 @@ namespace BabyCLARA.PhysiologicalModel
 
         // Breathing Effort DLL
         [DllImport("BreathEffortDLL.dll")]
-        extern static void InitBreathingEffortModel();
+        static extern void InitBreathingEffortModel();
         [DllImport("BreathEffortDLL.dll")]
-        extern static void BreathingEffortModel(IntPtr input, IntPtr output, double SimTimeSec);
+        static extern void BreathingEffortModel(IntPtr input, IntPtr output, double SimTimeSec);
 
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct BreathEffortModelInputs
+        protected struct BreathEffortModelInputs
         {
             public double Dchemo;
             public double SleepState;
@@ -186,9 +186,10 @@ namespace BabyCLARA.PhysiologicalModel
             public double MIP_cmH2O;
             public double Pmus_OpenLoop;
             public double DriveScaling;
+            public int CGF_ctrl;
         }
 
-        public struct BreathEffortModelOutputs
+        protected struct BreathEffortModelOutputs
         {
             public double Penvelope;
             public double Pmus;
@@ -199,11 +200,11 @@ namespace BabyCLARA.PhysiologicalModel
 
         // Body Tissue Compartment Model DLL
         [DllImport("BodyTissueCompDLL.dll")]
-        public static extern void InitBodyTissueCompartmentModel();
+        static extern void InitBodyTissueCompartmentModel();
         [DllImport("BodyTissueCompDLL.dll")]
-        public static extern void BodyTissueCompartmentModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
+        static extern void BodyTissueCompartmentModel(IntPtr input_ptr, IntPtr output_ptr, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct BodyTissueModelInputs
+        protected struct BodyTissueModelInputs
         {
             public double PmCO2_mmHg;
             public double PmO2_mmHg;
@@ -217,7 +218,7 @@ namespace BabyCLARA.PhysiologicalModel
             public double Pt_RQ;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct BodyTissueModelOutputs
+        protected struct BodyTissueModelOutputs
         {
             public double Cv_CO2;
             public double Cv_O2;
@@ -226,13 +227,13 @@ namespace BabyCLARA.PhysiologicalModel
 
         // Airway, Lungs, Alveolar, Airway Mixing
         [DllImport("AirLungAlvMixDLL.dll")]
-        extern static void InitAirwayLungsAlveolarMixingModel();
+        static extern void InitAirwayLungsAlveolarMixingModel();
         [DllImport("AirLungAlvMixDLL.dll")]
-        extern static void AirwayLungsAlveolarMixingModel(IntPtr input, IntPtr output,
+        static extern void AirwayLungsAlveolarMixingModel(IntPtr input, IntPtr output,
             double SimTimeSec);
 
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct AirLungAlvMixModelInputs
+        protected struct AirLungAlvMixModelInputs
         {
             public double Pmus;
             public double Ti;
@@ -262,7 +263,7 @@ namespace BabyCLARA.PhysiologicalModel
         };
 
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct AirLungAlvMixModelOutputs
+        protected struct AirLungAlvMixModelOutputs
         {
             public double P_UA_trans_lumen;
             public double Qpt_system;
@@ -289,7 +290,7 @@ namespace BabyCLARA.PhysiologicalModel
         static extern void HeartVasculatureMixingModel(IntPtr input, IntPtr output,
             double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct HeartVascModelInputs
+        protected struct HeartVascModelInputs
         {
             public double PaCO2;
             public double PaO2;
@@ -299,11 +300,29 @@ namespace BabyCLARA.PhysiologicalModel
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct HeartVascModelOutputs
+        protected struct HeartVascModelOutputs
         {
             public double PmCO2_mmHg;
             public double PmO2_mmHg;
         }
+
+
+        // Sleep State to Chamber Pressure (Static Change) DLL
+        [DllImport("SleepPChStaticDLL.dll")]
+        static extern void InitSleepToPChamberModel();
+        [DllImport("SleepPChStaticDLL.dll")]
+        static extern double SleepToPChamberModel(IntPtr input, double SimTimeSec);
+
+        protected struct SleepToPChamberStaticInputs
+        {
+            public double SleepState;
+            public double PChamber_N1;
+            public double PChamber_N2;
+            public double PChamber_SWS;
+            public double PChamber_REM;
+        }
+
+
 
 
         /*****************************/
@@ -314,53 +333,56 @@ namespace BabyCLARA.PhysiologicalModel
         public MainModel() { }
 
         // Declared instances of structs and pointers
-        public LBTDModelInputs lbtdModelInput = new();
-        public IntPtr lbtdModelInput_ptr;
-        public LBTDModelOutputs lbtdModelOutput = new();
-        public IntPtr lbtdModelOutput_ptr;
+        protected LBTDModelInputs lbtdModelInput = new();
+        protected IntPtr lbtdModelInput_ptr;
+        protected LBTDModelOutputs lbtdModelOutput = new();
+        protected IntPtr lbtdModelOutput_ptr;
 
-        public LCTDelayModelInputs lctDelayModelInput = new();
-        public IntPtr lctDelayModelInput_ptr;
-        public LCTDelayModelOutputs lctDelayModelOutput = new();
-        public IntPtr lctDelayModedOutput_ptr;
+        protected LCTDelayModelInputs lctDelayModelInput = new();
+        protected IntPtr lctDelayModelInput_ptr;
+        protected LCTDelayModelOutputs lctDelayModelOutput = new();
+        protected IntPtr lctDelayModedOutput_ptr;
 
-        public PeriCtrlModelInputs periCtrlModelInput = new();
-        public IntPtr periCtrlModelInput_ptr;
-        public PeriCtrlModelOutputs periCtrlModelOutput = new();
-        public IntPtr periCtrlModelOutput_ptr;
+        protected PeriCtrlModelInputs periCtrlModelInput = new();
+        protected IntPtr periCtrlModelInput_ptr;
+        protected PeriCtrlModelOutputs periCtrlModelOutput = new();
+        protected IntPtr periCtrlModelOutput_ptr;
 
-        public BTCModelInputs btcModelInput = new();
-        public IntPtr btcModelInput_ptr;
-        public BTCModelOutputs btcModelOutput = new();
-        public IntPtr btcModelOutput_ptr;
+        protected BTCModelInputs btcModelInput = new();
+        protected IntPtr btcModelInput_ptr;
+        protected BTCModelOutputs btcModelOutput = new();
+        protected IntPtr btcModelOutput_ptr;
 
-        public CentCtrlModelInput centCtrlModelInput = new();
-        public IntPtr centCtrlModelInput_ptr;
-        public CentCtrlModelOutput centCtrlModelOutput = new();
-        public IntPtr centCtrlModelOutput_ptr;
+        protected CentCtrlModelInput centCtrlModelInput = new();
+        protected IntPtr centCtrlModelInput_ptr;
+        protected CentCtrlModelOutput centCtrlModelOutput = new();
+        protected IntPtr centCtrlModelOutput_ptr;
 
-        public ChemRefDriveInput chemRefDriveInput = new();
-        public IntPtr chemRefDriveInput_ptr;
+        protected ChemRefDriveInput chemRefDriveInput = new();
+        protected IntPtr chemRefDriveInput_ptr;
 
-        public BreathEffortModelInputs breathEffortModelInput = new();
-        public IntPtr breathEffortModelInput_ptr;
-        public BreathEffortModelOutputs breathEffortModelOutput = new();
-        public IntPtr breathEffortModelOutput_ptr;
+        protected BreathEffortModelInputs breathEffortModelInput = new();
+        protected IntPtr breathEffortModelInput_ptr;
+        protected BreathEffortModelOutputs breathEffortModelOutput = new();
+        protected IntPtr breathEffortModelOutput_ptr;
 
-        public BodyTissueModelInputs bodyTissueModelInput = new();
-        public IntPtr bodyTissueModelInput_ptr;
-        public BodyTissueModelOutputs bodyTissueModelOutput = new();
-        public IntPtr bodyTissueModelOutput_ptr;
+        protected BodyTissueModelInputs bodyTissueModelInput = new();
+        protected IntPtr bodyTissueModelInput_ptr;
+        protected BodyTissueModelOutputs bodyTissueModelOutput = new();
+        protected IntPtr bodyTissueModelOutput_ptr;
 
-        public AirLungAlvMixModelInputs airLungAlvMixModelInput = new();
-        public IntPtr airLungAlvMixModelInput_ptr;
-        public AirLungAlvMixModelOutputs airLungAlvMixModelOutput = new();
-        public IntPtr airLungAlvMixModelOutput_ptr;
+        protected AirLungAlvMixModelInputs airLungAlvMixModelInput = new();
+        protected IntPtr airLungAlvMixModelInput_ptr;
+        protected AirLungAlvMixModelOutputs airLungAlvMixModelOutput = new();
+        protected IntPtr airLungAlvMixModelOutput_ptr;
 
-        public HeartVascModelInputs heartVascModelInput = new();
-        public IntPtr heartVascModelInput_ptr;
-        public HeartVascModelOutputs heartVascModelOutput = new();
-        public IntPtr heartVascModelOutput_ptr;
+        protected HeartVascModelInputs heartVascModelInput = new();
+        protected IntPtr heartVascModelInput_ptr;
+        protected HeartVascModelOutputs heartVascModelOutput = new();
+        protected IntPtr heartVascModelOutput_ptr;
+
+        protected SleepToPChamberStaticInputs sleepToPChamberStaticInput = new();
+        protected IntPtr sleepToPChamberStaticModelInput_ptr;
 
         // Initialize Embed Models for each DLL
         public void InitMainModelBlocks()
@@ -375,6 +397,7 @@ namespace BabyCLARA.PhysiologicalModel
             InitBodyTissueCompartmentModel();
             InitAirwayLungsAlveolarMixingModel();
             InitHeartVasculatureMixingModel();
+            InitSleepToPChamberModel();
         }
 
         // Allocate memory for the pointers to I/O structs
@@ -408,6 +431,8 @@ namespace BabyCLARA.PhysiologicalModel
 
             heartVascModelInput_ptr = Marshal.AllocHGlobal(Marshal.SizeOf(heartVascModelInput));
             heartVascModelOutput_ptr = Marshal.AllocHGlobal(Marshal.SizeOf(heartVascModelOutput));
+
+            sleepToPChamberStaticModelInput_ptr = Marshal.AllocHGlobal(Marshal.SizeOf(sleepToPChamberStaticInput));
         }
 
 
@@ -485,6 +510,7 @@ namespace BabyCLARA.PhysiologicalModel
             breathEffortModelInput.MIP_cmH2O = patient.MIP_cmH2O;
             breathEffortModelInput.Pmus_OpenLoop = patient.Pmus_Open;
             breathEffortModelInput.DriveScaling = 1;
+            breathEffortModelInput.CGF_ctrl = 0;
 
             // Body Tissues Compartment
             bodyTissueModelInput.PmCO2_mmHg = 36.0177;       // First condition. OUTPUT of Mixing in Heart, Lungs, Vasculature Model
@@ -532,6 +558,13 @@ namespace BabyCLARA.PhysiologicalModel
             heartVascModelInput.Td_l_to_p_Khoo_1990 = simGlobals.Td_l_to_p_Khoo1990;
             heartVascModelInput.T1_h = simGlobals.T1_h;
             heartVascModelInput.T2_h = simGlobals.T2_h;
+
+            // Sleep to PChamber (static) Model
+            sleepToPChamberStaticInput.SleepState = 0;
+            sleepToPChamberStaticInput.PChamber_REM = patient.Pchamber_REM_cmH2O;
+            sleepToPChamberStaticInput.PChamber_N1 = patient.Pchamber_N1_cmH2O;
+            sleepToPChamberStaticInput.PChamber_N2 = patient.Pchamber_N2_cmH2O;
+            sleepToPChamberStaticInput.PChamber_SWS = patient.Pchamber_SWS_cmH2O;
         }
 
 
@@ -620,6 +653,7 @@ namespace BabyCLARA.PhysiologicalModel
             breathEffortModelInput.ptRate = centCtrlModelOutput.BrRate;
             breathEffortModelInput.Ti = centCtrlModelOutput.Ti;
             breathEffortModelInput.VolAboveFRC = airLungAlvMixModelOutput.VolAboveFRC;
+            breathEffortModelInput.CGF_ctrl = patient.CGF_ctrl;
             Marshal.StructureToPtr(breathEffortModelInput, breathEffortModelInput_ptr, true);
             BreathingEffortModel(breathEffortModelInput_ptr, breathEffortModelOutput_ptr, SimTimeSec);
             breathEffortModelOutput = (BreathEffortModelOutputs)Marshal.PtrToStructure(breathEffortModelOutput_ptr, typeof(BreathEffortModelOutputs))!;
@@ -660,6 +694,11 @@ namespace BabyCLARA.PhysiologicalModel
             HeartVasculatureMixingModel(heartVascModelInput_ptr, heartVascModelOutput_ptr, SimTimeSec);
             heartVascModelOutput = (HeartVascModelOutputs)Marshal.PtrToStructure(heartVascModelOutput_ptr, typeof(HeartVascModelOutputs))!;
 
+            // Sleep State to Chamber Pressure (static)
+            sleepToPChamberStaticInput.SleepState = btcModelOutput.SleepState;
+            Marshal.StructureToPtr(sleepToPChamberStaticInput, sleepToPChamberStaticModelInput_ptr, true);
+            patient.ChamberPressure = SleepToPChamberModel(sleepToPChamberStaticModelInput_ptr, SimTimeSec);
+
             // Store output variables for printing
             patient.PmCO2 = heartVascModelOutput.PmCO2_mmHg;
             patient.SaO2 = periCtrlModelOutput.SaO2;
@@ -688,6 +727,7 @@ namespace BabyCLARA.PhysiologicalModel
             Marshal.FreeHGlobal(airLungAlvMixModelOutput_ptr);
             Marshal.FreeHGlobal(heartVascModelInput_ptr);
             Marshal.FreeHGlobal(heartVascModelOutput_ptr);
+            Marshal.FreeHGlobal(sleepToPChamberStaticModelInput_ptr);
         }
     }
 }

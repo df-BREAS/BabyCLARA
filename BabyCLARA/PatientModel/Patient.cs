@@ -81,73 +81,84 @@ namespace BabyCLARA.PatientModel
         static string Pt_Catalog_path = "AE_Pt_Catalog.csv";
 
         // Patient catalog variables
-        public string? Reference { set; get; }
-        public double Pathology;
-        public double Pathology_Severity_0_3;
-        public double Height_cm;
-        public double Weight_kg;
-        public double Age_yr;
-        public double Daytime_CO2_mmHg;
-        public double Pchamber_REM_cmH2O;
-        public double MIP_cmH2O;
-        public double MIP_preserved_in_REM_percent;
-        public double RQ;
-        public double SNS_Elevation_f;
-        public double FRC_perc_Normal;
-        public double Shunt_At_FRC_perc;
-        public double Shunt_at_PEEP20perc;
-        public double lc;
-        public double lp;
-        public double Gp;
-        public double Gc;
-        public double SaO2_target;
-        public double hGrad;
-        public double Dar_REM;
-        public double Rtot_f;
-        public double Crs_f;
-        public double Vd_factor;
-        public double Pmus_Open;
-        public double Ti_eqn_b;
-        public double Crs_linear_cat;
-        public double Rin;
-        public double Rex;
-        public double f;
-        public double Pmax;
-        public double ExpEffort_perc;
-        public double Ti_Ttot_ratio_perc;
-        public double Rupper;
-        public double Rlower;
-        public double Rasl;
-        public double lateral_posture;
+        public string? Reference { get; set; }
+        public double Pathology { get; set; }
+
+        public double Pathology_Severity_0_3 { get; set; }
+        public double Height_cm { get; set; }
+        public double Weight_kg { get; set; }
+        public double Age_yr { get; set; }
+        public double Daytime_CO2_mmHg { get; set; }
+        public double Pchamber_REM_cmH2O { get; set; }
+        public double MIP_cmH2O { get; set; }
+        public double MIP_preserved_in_REM_percent { get; set; }
+        public double RQ { get; set; }
+        public double SNS_Elevation_f { get; set; }
+        public double FRC_perc_Normal { get; set; }
+        public double Shunt_At_FRC_perc { get; set; }
+        public double Shunt_at_PEEP20perc { get; set; }
+        public double lc { get; set; }
+        public double lp { get; set; }
+        public double Gp { get; set; }
+        public double Gc { get; set; }
+        public double SaO2_target { get; set; }
+        public double hGrad { get; set; }
+        public double Dar_REM { get; set; }
+        public double Rtot_f { get; set; }
+        public double Crs_f { get; set; }
+        public double Vd_factor { get; set; }
+        public double Pmus_Open { get; set; }
+        public double Ti_eqn_b { get; set; }
+        public double Crs_linear_cat { get; set; }
+        public double Rin { get; set; }
+        public double Rex { get; set; }
+        public double f { get; set; }
+        public double Pmax { get; set; }
+        public double ExpEffort_perc { get; set; }
+        public double Ti_Ttot_ratio_perc { get; set; }
+        public double Pchamber_N1_cmH2O { get; set; }
+        public double Pchamber_N2_cmH2O { get; set; }
+        public double Pchamber_SWS_cmH2O { get; set; }
+        public double Rupper { get; set; }
+        public double Rlower { get; set; }
+        public double Rasl { get; set; }
+        public double lateral_posture { get; set; }
+
 
         // Aux block output variables
-        public double K_863;
-        public double MBW_kg;
-        public double QTissue_LPS;
-        public double PtRate_nominal;
-        public double MR_basal_kcalPerDay;
-        public double Roronasal;
-        public double Rlower_insp;
-        public double Rlower_exp;
-        public double Rinsp_nominal;
-        public double Rexp_nominal;
-        public double VD_anat_normal;
-        public double Vic;
-        public double V_FRC;
-        public double Crs_linear;
-        public double UA_supine_factor;
+        public double K_863 { get; set; }
+        public double MBW_kg { get; set; }
+        public double QTissue_LPS { get; set; }
+        public double PtRate_nominal { get; set; }
+        public double MR_basal_kcalPerDay { get; set; }
+        public double Roronasal { get; set; }
+        public double Rlower_insp { get; set; }
+        public double Rlower_exp { get; set; }
+        public double Rinsp_nominal { get; set; }
+        public double Rexp_nominal { get; set; }
+        public double VD_anat_normal { get; set; }
+        public double Vic { get; set; }
+        public double V_FRC { get; set; }
+        public double Crs_linear { get; set; }
+        public double UA_supine_factor { get; set; }
+
 
         // Main Model output variables
-        public double Dchemo;
-        public double Pmus;
-        public double SaO2;
-        public double PmCO2;
-        public double SleepState;
+        public double Dchemo { get; set; }
+        public double Pmus { get; set; }
+        public double SaO2 { get; set; }
+        public double PmCO2 { get; set; }
+        public double SleepState { get; set; }  
+
 
         // Main Model variables for manual control of Patient Sleep State
-        public bool patientManualControl;
-        public double SleepLightsOut;
-        public double SleepManualIncrement;
+        public bool patientManualControl { get; set; }
+        public double SleepLightsOut { get; set; }
+        public double SleepManualIncrement { get; set; }
+        public int CGF_ctrl { get; set; }
+
+        // Patient chamber pressure
+        public double ChamberPressure { get; set; }
 
 
         public void LoadPatientCatalog(string patient_type)
@@ -198,6 +209,9 @@ namespace BabyCLARA.PatientModel
                     Pmax = Convert.ToDouble(fields[(int)PtCatIndexNum.PMAX]);
                     ExpEffort_perc = Convert.ToDouble(fields[(int)PtCatIndexNum.EXPEFFORT]);
                     Ti_Ttot_ratio_perc = Convert.ToDouble(fields[(int)PtCatIndexNum.TI_TTOT_RATIO]);
+                    Pchamber_N1_cmH2O = Convert.ToDouble(fields[(int)PtCatIndexNum.PCHAMBER_N1]);
+                    Pchamber_N2_cmH2O = Convert.ToDouble(fields[(int)PtCatIndexNum.PCHAMBER_N2]);
+                    Pchamber_SWS_cmH2O = Convert.ToDouble(fields[(int)PtCatIndexNum.PCHAMBER_SWS]);
                     Rupper = Convert.ToDouble(fields[(int)PtCatIndexNum.RUPPER]);
                     Rlower = Convert.ToDouble(fields[(int)PtCatIndexNum.RLOWER]);
                     Rasl = Convert.ToDouble(fields[(int)PtCatIndexNum.RASL]);

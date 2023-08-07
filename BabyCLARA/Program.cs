@@ -31,9 +31,11 @@ namespace BabyCLARA
             InitializeSim(patient, globals, mainModel, auxBlocks);
 
             // Create the DAQ task and channel
-            NationalInstruments.DAQmx.Task daqTask = new NationalInstruments.DAQmx.Task();
-            SetupDAQ(daqTask);
-            AnalogSingleChannelWriter analogChannelWriter = new AnalogSingleChannelWriter(daqTask.Stream);
+            NationalInstruments.DAQmx.Task daqWriteTask = new NationalInstruments.DAQmx.Task();
+            NationalInstruments.DAQmx.Task daqReadTask = new NationalInstruments.DAQmx.Task();
+            SetupDAQ(daqWriteTask, daqReadTask);
+            AnalogSingleChannelWriter analogChannelWriter = new AnalogSingleChannelWriter(daqWriteTask.Stream);
+            AnalogSingleChannelReader analogChannelReader = new AnalogSingleChannelReader(daqReadTask.Stream);
 
             // Set up the flow analyzer
             FlowAnalyzer flowAnalyzer = new FlowAnalyzer();
@@ -45,7 +47,7 @@ namespace BabyCLARA
             double prevTime = stopwatch.Elapsed.TotalMilliseconds;
 
             // Run Simulation
-            RunCLARA(daqTask, analogChannelWriter, flowAnalyzer, stopwatch, prevTime,
+            RunCLARA(analogChannelWriter, analogChannelReader, flowAnalyzer, stopwatch, prevTime,
                 patient, globals, mainModel, auxBlocks);
 
             // Clean-up
@@ -55,9 +57,11 @@ namespace BabyCLARA
 
         // Main loop for CLARA. Collects data from flow analyzer, runs ten iterations of the
         // Control of Breathing model simulation, and outputs voltage from the DAQ every 10 ms.
-        static void RunCLARA(NationalInstruments.DAQmx.Task daqTask, 
-            AnalogSingleChannelWriter analogChannelWriter, FlowAnalyzer flowAnalyzer,
-            Stopwatch stopwatch, double prevTime, Patient patient, SimGlobals globals, 
+        static void RunCLARA(
+            AnalogSingleChannelWriter analogChannelWriter,
+            AnalogSingleChannelReader analogChannelReader,
+            FlowAnalyzer flowAnalyzer,Stopwatch stopwatch, 
+            double prevTime, Patient patient, SimGlobals globals, 
             MainModel mainModel, AuxBlocks auxBlocks)
         {
             Console.WriteLine("Inside RunCLARA function");
@@ -71,8 +75,8 @@ namespace BabyCLARA
             double simTime = 0;
 
             // Prepare output file
-            StreamWriter sr = new("CLARA_output_SleepTest_7_19_2023.txt");
-            sr.WriteLine("Time_s, Flow_LPM, Pressure_cmH2O, PDiff_cmH2O, Pmus_cmH2O, SaO2_%, PmCO2_mmHg, Dchemo, SleepState");
+            StreamWriter sr = new("CLARA_output_PressureTest_7_31_2023.txt");
+            sr.WriteLine("Time_s, Flow_LPM, Pressure_cmH2O, PDiff_cmH2O, Pmus_cmH2O, SaO2_%, PmCO2_mmHg, Dchemo, SleepState, ASLPressure_cmH2O");
 
             bool sleepEnganged = false;
             // Run CLARA at a frequency of 100 Hz
@@ -87,6 +91,9 @@ namespace BabyCLARA
                     double measuredPressure = flowAnalyzer.Pressure;
                     double measuredFlow = flowAnalyzer.Flow;
                     double measuredPDiff = flowAnalyzer.DiffPressure;
+
+                    // Take measurement from DAQ. Note: this is causing a slowdown in the breath rate of the patient. 
+                    double measuredAslPressureDAQ = analogChannelReader.ReadSingleSample() * 5;
 
                     // If desired, manually change the sleep stage
                     if (simTime > 10 && !sleepEnganged)
@@ -104,7 +111,8 @@ namespace BabyCLARA
 
                     // Write to file/console
                     //Console.WriteLine($"Time: {simTime}, Flow: {measuredFlow}, Pressure: {measuredPressure}, Pdiff: {measuredPDiff } Pmus: {patient.Pmus}");
-                    sr.WriteLine($"{simTime}, {measuredFlow}, {measuredPressure}, {measuredPDiff}, {patient.Pmus}, {patient.SaO2}, {patient.PmCO2}, {patient.Dchemo}, {patient.SleepState}");
+                    //Console.WriteLine($"Time: {simTime}, Pressure: {measuredAslPressureDAQ}");
+                    sr.WriteLine($"{simTime}, {measuredFlow}, {measuredPressure}, {measuredPDiff}, {patient.Pmus}, {patient.SaO2}, {patient.PmCO2}, {patient.Dchemo}, {patient.SleepState}, {measuredAslPressureDAQ}");
 
                     // Write to DAQ, update time variables
                     analogChannelWriter.WriteSingleSample(true, (patient.Pmus / 10 ) + SignalBias);
@@ -114,6 +122,8 @@ namespace BabyCLARA
 
                 if (stopwatch.Elapsed.TotalSeconds > globals.MaxSimTime) { break; }
             }
+            
+            // Close file
             sr.Close();
 
         }
@@ -159,7 +169,8 @@ namespace BabyCLARA
         
 
         // Declare paramters for DAQ and initialize the daqTask object
-        static void SetupDAQ(NationalInstruments.DAQmx.Task daqTask)
+        static void SetupDAQ(NationalInstruments.DAQmx.Task daqWriteTask,
+            NationalInstruments.DAQmx.Task daqReadTask)
         {
             // Set up DAQ Paramters
             const string PhysicalChannel = "Dev1/ao0";
@@ -167,16 +178,27 @@ namespace BabyCLARA
             const double MaxVoltage = 10;
 
             // Create the task and channel
-            // Create the task and channel
-            daqTask.AOChannels.CreateVoltageChannel(
+            daqWriteTask.AOChannels.CreateVoltageChannel(
                 PhysicalChannel,
                 string.Empty,
                 MinVoltage,
                 MaxVoltage,
                 AOVoltageUnits.Volts);
 
+            // Create the task and channel
+            const string PhysicalInputChannel = "Dev1/ai0";
+            daqReadTask.AIChannels.CreateVoltageChannel(
+                PhysicalInputChannel,
+                string.Empty,
+                AITerminalConfiguration.Rse,
+                -10,
+                10,
+                AIVoltageUnits.Volts);
+
+
             // Verify the task before doing the waveform calculations
-            daqTask.Control(TaskAction.Verify);
+            daqWriteTask.Control(TaskAction.Verify);
+            daqReadTask.Control(TaskAction.Verify);
         }
     }
 }

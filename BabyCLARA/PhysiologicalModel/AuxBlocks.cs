@@ -21,7 +21,7 @@ namespace BabyCLARA.PhysiologicalModel
         [DllImport("PWaterVaporDLL.dll")]
         public static extern double PWaterVaporModel(IntPtr input_ptr, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct PWatVapInputs
+        protected struct PWatVapInputs
         {
             public double Temp;
             public double RH;
@@ -34,7 +34,7 @@ namespace BabyCLARA.PhysiologicalModel
         [DllImport("GasExchangeFactorDLL.dll")]
         static extern double GasExchangeFactorModel(IntPtr input_ptr, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct GasExFacModelInputs
+        protected struct GasExFacModelInputs
         {
             public double Pb;
             public double Pvap;
@@ -47,7 +47,7 @@ namespace BabyCLARA.PhysiologicalModel
         [DllImport("BasalMetaRateDLL.dll")]
         static extern double BasalMetabolicRateModel(IntPtr input, double SimStateSim);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct BasalMRInput
+        protected struct BasalMRInput
         {
             public double Ht_cm;
             public double SNS_f;
@@ -68,14 +68,14 @@ namespace BabyCLARA.PhysiologicalModel
         static extern void RelativeObesityModel(IntPtr input, IntPtr output,
             double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct RelativeObesityInputs
+        protected struct RelativeObesityInputs
         {
             public double Wt_actual;
             public double Wt_ideal_for_Ht;
             public double Ht_cm;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct RelativeObesityOutputs
+        protected struct RelativeObesityOutputs
         {
             public double Obese_f;
             public double BMI_kg_per_m3;
@@ -88,14 +88,14 @@ namespace BabyCLARA.PhysiologicalModel
         [DllImport("PatientCrsDLL.dll")]
         static extern void PatientCrsModel(IntPtr input, IntPtr output, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct PatientCrsModelInputs
+        protected struct PatientCrsModelInputs
         {
             public double Height_cm;
             public double path_f;
             public double Lateral;
             public double Obese_f;
         }
-        public struct PatientCrsModelOutputs
+        protected struct PatientCrsModelOutputs
         {
             public double Crs;
             public double UA_supine_factor;
@@ -109,14 +109,14 @@ namespace BabyCLARA.PhysiologicalModel
         static extern void LungAirwayCapacitiesModel(IntPtr input_ptr, IntPtr output_ptr,
                                                     double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct LungAirwayCapModelInput
+        protected struct LungAirwayCapModelInput
         {
             public double Ht_cm;
             public double Crs_pt;
             public double FRC_pc_normal;
         }
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct LungAirwayCapModelOutput
+        protected struct LungAirwayCapModelOutput
         {
             public double Vd_anat;
             public double V_tcl;
@@ -131,12 +131,12 @@ namespace BabyCLARA.PhysiologicalModel
         [DllImport("AWResRawDLL.dll")]
         static extern void AirwayResistanceRawModel(IntPtr input, IntPtr output, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct AirwayResistanceModelInputs
+        protected struct AirwayResistanceModelInputs
         {
             public double Rtot_f;
             public double PtHeight_cm;
         }
-        public struct AirwayResistanceModelOutputs
+        protected struct AirwayResistanceModelOutputs
         {
             public double Roronasal;
             public double Rlower_insp;
@@ -159,7 +159,7 @@ namespace BabyCLARA.PhysiologicalModel
         [DllImport("BldBrnFlwDLL.dll")]
         static extern double BloodInBrainFlowModel(IntPtr input, double SimTimeSec);
         [StructLayout(LayoutKind.Sequential, Pack = 8)]
-        public struct BloodInBrainFlowInputs
+        protected struct BloodInBrainFlowInputs
         {
             public double Qbrain_LPMperKg;
             public double MBW_kg;
@@ -177,37 +177,37 @@ namespace BabyCLARA.PhysiologicalModel
         public AuxBlocks() { }
 
         // Struct and pointer inputs of select auxiliary function blocks
-        public PWatVapInputs pWaterVaporInput = new();
-        public IntPtr pWaterVaporInput_ptr;
+        protected PWatVapInputs pWaterVaporInput = new();
+        protected IntPtr pWaterVaporInput_ptr;
 
-        public GasExFacModelInputs gasExFacModelInput = new();
-        public IntPtr gasExFacModelInput_ptr;
+        protected GasExFacModelInputs gasExFacModelInput = new();
+        protected IntPtr gasExFacModelInput_ptr;
 
-        public BasalMRInput basalMRInput = new();
-        public IntPtr basalMRInput_ptr;
+        protected BasalMRInput basalMRInput = new();
+        protected IntPtr basalMRInput_ptr;
 
-        public RelativeObesityInputs relativeObesityInput = new();
-        public IntPtr relativeObesityInput_ptr;
-        public RelativeObesityOutputs relativeObesityOutput = new();
-        public IntPtr relativeObesityOutput_ptr;
+        protected RelativeObesityInputs relativeObesityInput = new();
+        protected IntPtr relativeObesityInput_ptr;
+        protected RelativeObesityOutputs relativeObesityOutput = new();
+        protected IntPtr relativeObesityOutput_ptr;
 
-        public PatientCrsModelInputs patientCrsModelInput = new();
-        public IntPtr patientCrsModelInput_ptr;
-        public PatientCrsModelOutputs patientCrsModelOutput = new();
-        public IntPtr patientCrsModelOutput_ptr;
+        protected PatientCrsModelInputs patientCrsModelInput = new();
+        protected IntPtr patientCrsModelInput_ptr;
+        protected PatientCrsModelOutputs patientCrsModelOutput = new();
+        protected IntPtr patientCrsModelOutput_ptr;
 
-        public LungAirwayCapModelInput lungAirwayCapInput = new();
-        public IntPtr lungAirwayCapInput_ptr;
-        public LungAirwayCapModelOutput lungAirwayCapOutput = new();
-        public IntPtr lungAirwayCapOutput_ptr;
+        protected LungAirwayCapModelInput lungAirwayCapInput = new();
+        protected IntPtr lungAirwayCapInput_ptr;
+        protected LungAirwayCapModelOutput lungAirwayCapOutput = new();
+        protected IntPtr lungAirwayCapOutput_ptr;
 
-        public AirwayResistanceModelInputs airwayResistanceModelInput = new();
-        public IntPtr airwayResistanceModelInput_ptr;
-        public AirwayResistanceModelOutputs airwayResistanceModelOutput = new();
-        public IntPtr airwayResistanceModelOutput_ptr;
+        protected AirwayResistanceModelInputs airwayResistanceModelInput = new();
+        protected IntPtr airwayResistanceModelInput_ptr;
+        protected AirwayResistanceModelOutputs airwayResistanceModelOutput = new();
+        protected IntPtr airwayResistanceModelOutput_ptr;
 
-        public BloodInBrainFlowInputs bloodInBrainFlowInput = new();
-        public IntPtr bloodInBrainFlowInput_ptr;
+        protected BloodInBrainFlowInputs bloodInBrainFlowInput = new();
+        protected IntPtr bloodInBrainFlowInput_ptr;
 
 
 
